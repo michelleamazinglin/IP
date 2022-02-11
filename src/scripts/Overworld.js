@@ -52,7 +52,7 @@ class Overworld {
        32
     )
    }
-   mainCharacter.src = "./dist/images/characters/people/hero.png";
+   mainCharacter.src = "./dist/images/characters/people/mainCharacter.png";
 
 
  }
