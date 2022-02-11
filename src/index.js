@@ -1,2 +1,3 @@
 import "./styles/index.scss";
-import "./images/yoda-stitch.jpg";
+import "./scripts/init"
+import "./scripts/Overworld"
