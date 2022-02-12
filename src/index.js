@@ -1,3 +1,6 @@
 import "./styles/index.scss";
-import "./scripts/init"
-import "./scripts/Overworld"
+
+// import "./scripts/Overworld"
+// import "./scripts/GameObject"
+// import "./scripts/Sprite"
+// import "./scripts/init"
