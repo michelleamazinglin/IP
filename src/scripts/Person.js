@@ -23,7 +23,7 @@ class Person extends GameObject {
       //
 
       //Case: We're keyboard ready and have an arrow pressed
-      if (this.isPlayerControlled && state.arrow) {
+      if (!state.map.isCutsencePlaying && this.isPlayerControlled && state.arrow) {
         this.startBehavior(state, {
           type: "walk",
           direction: state.arrow
