@@ -42,9 +42,19 @@ class Overworld {
     step();
   }
 
+
+  bindActionInput() {
+    new KeyPressListener("Enter", () => {
+      //Is there a person here to talk to?
+      this.map.checkForActionCutscene()
+    })
+  }
+
   init() {
     this.map = new OverworldMap(window.OverworldMaps.DemoRoom);
     this.map.mountObjects();
+
+    this.bindActionInput();
 
     this.directionInput = new DirectionInput();
     this.directionInput.init();
@@ -52,11 +62,10 @@ class Overworld {
     this.startGameLoop();
 
     this.map.startCutscene([
-      { who: "mainCharacter", type: "walk", direction: "down" },
-      { who: "mainCharacter", type: "walk", direction: "down" },
-      { who: "npcA", type: "walk", direction: "left" },
-      { who: "npcA", type: "walk", direction: "left" },
-      { who: "npcA", type: "stand", direction: "up", time: 800 },
+      // {type: "textMessage", text: "Hello World"}
+      // { who: "npcA", type: "walk", direction: "left" },
+      // { who: "npcA", type: "walk", direction: "left" },
+      // { who: "npcA", type: "stand", direction: "up", time: 800 },
     ])
   }
 }

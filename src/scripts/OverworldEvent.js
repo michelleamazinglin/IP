@@ -45,6 +45,25 @@ class OverworldEvent {
 
   }
 
+  textMessage(resolve) {
+
+    if (this.event.faceMainCharacter) {
+      const obj = this.map.gameObjects[this.event.faceMainCharacter];
+      obj.direction = utils.oppositeDirection(this.map.gameObjects["mainCharacter"].direction);
+    }
+
+    const message = new TextMessage({
+      text: this.event.text,
+      onComplete: () => resolve()
+    })
+    message.init(document.querySelector(".game-container"))
+  }
+
+  changeMap(resolve) {
+    this.map.overworld.startMap(window.OverworldMaps[this.event.map]);
+    resolve();
+  }
+
   init() {
     return new Promise(resolve => {
       this[this.event.type](resolve)      

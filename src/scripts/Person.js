@@ -2,6 +2,7 @@ class Person extends GameObject {
   constructor(config) {
     super(config);
     this.movingProgressRemaining = 0;
+    this.isStanding = false;
 
     this.isPlayerControlled = config.isPlayerControlled || false;
 
@@ -23,7 +24,7 @@ class Person extends GameObject {
       //
 
       //Case: We're keyboard ready and have an arrow pressed
-      if (!state.map.isCutsencePlaying && this.isPlayerControlled && state.arrow) {
+      if (!state.map.isCutscenePlaying && this.isPlayerControlled && state.arrow) {
         this.startBehavior(state, {
           type: "walk",
           direction: state.arrow
@@ -55,10 +56,12 @@ class Person extends GameObject {
     }
 
     if (behavior.type === "stand") {
+      this.isStanding = true;
       setTimeout(() => {
         utils.emitEvent("PersonStandComplete", {
           whoId: this.id
         })
+        this.isStanding = false;
       }, behavior.time)
     }
     
