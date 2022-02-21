@@ -98,16 +98,16 @@ class OverworldMap {
 }
 
 window.OverworldMaps = {
-    DemoRoom: {
+    Home: {
         lowerSrc: "./dist/images/maps/DemoLower.png",
         upperSrc: "./dist/images/maps/DemoUpper.png",
         gameObjects: {
             mainCharacter: new Person({
                 isPlayerControlled: true,
-                x: utils.withGrid(5),
+                x: utils.withGrid(6),
                 y: utils.withGrid(6),
             }),
-            npcA: new Person({
+            mom: new Person({
                 x: utils.withGrid(7),
                 y: utils.withGrid(9),
                 src: "./dist/images/characters/people/npc1.png",
@@ -120,14 +120,14 @@ window.OverworldMaps = {
                 talking: [
                     {
                         events: [
-                            { type: "textMessage", text: "I'm busy...", faceMainCharacter: "npcA" },
-                            { type: "textMessage", text: "Go away!" },
-                            { who: "mainCharacter", type: "walk", direction: "up" },
+                            { type: "textMessage", text: "I am glad you are ready to travel", faceMainCharacter: "mom" },
+                            { type: "textMessage", text: "Here is some cash to get you started" },
+                            { type: "textMessage", text: "stay safe and have fun" },
                         ]
                     }
                 ]
             }),
-            npcB: new Person({
+            dad: new Person({
                 x: utils.withGrid(8),
                 y: utils.withGrid(5),
                 src: "./dist/images/characters/people/npc3.png",
@@ -141,19 +141,59 @@ window.OverworldMaps = {
             }),
         },
         walls: {
-            [utils.asGridCoord(7, 6)]: true,
-            [utils.asGridCoord(8, 6)]: true,
-            [utils.asGridCoord(7, 7)]: true,
-            [utils.asGridCoord(8, 7)]: true,
+            // walls
+            [utils.asGridCoord(0 , 4)]: true,
+            [utils.asGridCoord(0, 5)]: true,
+            [utils.asGridCoord(0, 6)]: true,
+            [utils.asGridCoord(0, 7)]: true,
+            [utils.asGridCoord(0, 8)]: true,
+            [utils.asGridCoord(0, 9)]: true,
+            [utils.asGridCoord(1 , 3)]: true,
+            [utils.asGridCoord(2 , 3)]: true,
+            [utils.asGridCoord(3 , 3)]: true,
+            [utils.asGridCoord(4 , 3)]: true,
+            [utils.asGridCoord(5 , 3)]: true,
+            [utils.asGridCoord(6 , 4)]: true,
+            [utils.asGridCoord(8 , 4)]: true,
+            [utils.asGridCoord(9 , 3)]: true,
+            [utils.asGridCoord(10, 3)]: true,
+            [utils.asGridCoord(1, 10)]: true,
+            [utils.asGridCoord(2, 10)]: true,
+            [utils.asGridCoord(3, 10)]: true,
+            [utils.asGridCoord(4, 10)]: true,
+            [utils.asGridCoord(5, 11)]: true,
+            [utils.asGridCoord(6, 10)]: true,
+            [utils.asGridCoord(7, 10)]: true,
+            [utils.asGridCoord(8, 10)]: true,
+            [utils.asGridCoord(9, 10)]: true,
+            [utils.asGridCoord(10, 10)]: true,
+            [utils.asGridCoord(11, 4)]: true,
+            [utils.asGridCoord(11, 5)]: true,
+            [utils.asGridCoord(11, 6)]: true,
+            [utils.asGridCoord(11, 7)]: true,
+            [utils.asGridCoord(11, 8)]: true,
+            [utils.asGridCoord(11, 9)]: true,
+            [utils.asGridCoord(11, 10)]: true,
+            // table
+            [utils.asGridCoord(3 , 7)]: true,
+            [utils.asGridCoord(4 , 7)]: true,
+            // soda
+            [utils.asGridCoord(3, 5)]: true,
+            [utils.asGridCoord(4, 5)]: true,
+            [utils.asGridCoord(1, 7)]: true,
+            [utils.asGridCoord(1, 8)]: true,
+            
+            
         },
         cutsceneSpaces: {
             [utils.asGridCoord(7, 4)]: [
                 {
                     events: [
-                        { who: "npcB", type: "walk", direction: "left" },
-                        { who: "npcB", type: "stand", direction: "up", time: 500 },
-                        { type: "textMessage", text: "You can't be in there!" },
-                        { who: "npcB", type: "walk", direction: "right" },
+                        { who: "dad", type: "walk", direction: "left" },
+                        { who: "dad", type: "stand", direction: "up", time: 500 },
+                        { type: "textMessage", text: "I still need some time to clean your room out...come back later" },
+                        { who: "dad", type: "walk", direction: "right" },
+                        { who: "dad", type: "stand", direction: "down" },
                         { who: "mainCharacter", type: "walk", direction: "down" },
                         { who: "mainCharacter", type: "walk", direction: "left" },
                     ]
@@ -162,34 +202,41 @@ window.OverworldMaps = {
             [utils.asGridCoord(5, 10)]: [
                 {
                     events: [
-                        { type: "changeMap", map: "Kitchen" }
+                        { type: "changeMap", map: "Street" }
                     ]
                 }
             ]
         }
 
     },
-    Kitchen: {
-        lowerSrc: "./dist/images/maps/KitchenLower.png",
-        upperSrc: "./dist/images/maps/KitchenUpper.png",
+    Street: {
+        lowerSrc: "./dist/images/maps/StreetLower.png",
+        upperSrc: "./dist/images/maps/StreetUpper.png",
         gameObjects: {
             mainCharacter: new Person({
                 isPlayerControlled: true,
-                x: utils.withGrid(5),
-                y: utils.withGrid(5),
+                x: utils.withGrid(21),
+                y: utils.withGrid(10),
+                useShadow: true,
             }),
-            npcB: new Person({
-                x: utils.withGrid(10),
-                y: utils.withGrid(8),
-                src: "./dist/images/characters/people/npc3.png",
+            busTicket: new Shop({
+                x: utils.withGrid(32),
+                y: utils.withGrid(12),
+                src: "./dist/images/Objects/busTickets.png",
                 talking: [
                     {
                         events: [
-                            { type: "textMessage", text: "You made it!", faceMainCharacter: "npcB" },
+                            { type: "textMessage", text: "Join our bus tour to discover more..."},
+                            { type: "textMessage", text: "bus ticket is 5 dollars" },
                         ]
                     }
                 ]
-            })
+            }),
+            busStop: new Shop({
+                x: utils.withGrid(28),
+                y: utils.withGrid(12),
+                src: "./dist/images/Objects/busStop.png",
+            }),
         }
     },
 }

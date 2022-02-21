@@ -8,6 +8,7 @@ class GameObject {
         this.sprite = new Sprite({
             gameObject: this,
             src: config.src || "./dist/images/characters/people/mainCharacter.png",
+            useShadow: config.useShadow || false,
         });
         this.behaviorLoop = config.behaviorLoop || [];
         this.behaviorLoopIndex = 0;
@@ -16,7 +17,6 @@ class GameObject {
     }
 
     mount(map) {
-        console.log("mounting!")
         this.isMounted = true;
         map.addWall(this.x, this.y); //add collision to the npc or gameobjects
 

@@ -1,4 +1,4 @@
-class Sprite {
+class SpriteObject {
     constructor(config) {
 
         //Set up the image
@@ -8,31 +8,15 @@ class Sprite {
             this.isLoaded = true;
         }
 
-        //Shadow
-        this.shadow = new Image();
-        this.useShadow = config.useShadow || false;
-        if (this.useShadow) {
-            this.shadow.src = "./dist/images/characters/shadow.png";
-        }
-        this.shadow.onload = () => {
-            this.isShadowLoaded = true;
-        }
-
         //Configure Animation & Initial State
         this.animations = config.animations || {
-            "idle-down": [[0, 0]],
-            "idle-right": [[0, 1]],
-            "idle-up": [[0, 2]],
-            "idle-left": [[0, 3]],
-            "walk-down": [[1, 0], [0, 0], [3, 0], [0, 0],],
-            "walk-right": [[1, 1], [0, 1], [3, 1], [0, 1],],
-            "walk-up": [[1, 2], [0, 2], [3, 2], [0, 2],],
-            "walk-left": [[1, 3], [0, 3], [3, 3], [0, 3],]
+            "object-still": [[0,0]],
+            "object-move": [[0, 0], [0, 1], [1,0], [1,1]],
         }
-        this.currentAnimation = "idle-right"; // config.currentAnimation || "idle-down";
+        this.currentAnimation = "object-still"; 
         this.currentAnimationFrame = 0;
 
-        this.animationFrameLimit = config.animationFrameLimit || 8;
+        this.animationFrameLimit = config.animationFrameLimit || 16;
         this.animationFrameProgress = this.animationFrameLimit;
 
 
@@ -75,16 +59,14 @@ class Sprite {
         const x = this.gameObject.x - 8 + utils.withGrid(10.5) - cameraPerson.x;
         const y = this.gameObject.y - 18 + utils.withGrid(6) - cameraPerson.y;
 
-        this.isShadowLoaded && ctx.drawImage(this.shadow, x, y);
-
 
         const [frameX, frameY] = this.frame;
 
         this.isLoaded && ctx.drawImage(this.image,
-            frameX * 32, frameY * 32,
-            32, 32,
+            frameX * 64, frameY * 64,
+            64, 64,
             x, y,
-            32, 32
+            64, 64
         )
 
         this.updateAnimationProgress();
