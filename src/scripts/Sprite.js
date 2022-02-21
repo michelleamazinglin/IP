@@ -8,6 +8,9 @@ class Sprite {
             this.isLoaded = true;
         }
 
+        this.objectSizeX = config.objectSizeX || 32;
+        this.objectSizeY = config.objectSizeY || 32;
+
         //Shadow
         this.shadow = new Image();
         this.useShadow = config.useShadow || false;
@@ -27,11 +30,14 @@ class Sprite {
             "walk-down": [[1, 0], [0, 0], [3, 0], [0, 0],],
             "walk-right": [[1, 1], [0, 1], [3, 1], [0, 1],],
             "walk-up": [[1, 2], [0, 2], [3, 2], [0, 2],],
-            "walk-left": [[1, 3], [0, 3], [3, 3], [0, 3],]
+            "walk-left": [[1, 3], [0, 3], [3, 3], [0, 3],],
+            "car-move": [[0, 0],[0,1]],
+            "car-still": [[0, 0]],
         }
-        this.currentAnimation = "idle-right"; // config.currentAnimation || "idle-down";
+        this.currentAnimation = config.currentAnimation || "idle-down";
         this.currentAnimationFrame = 0;
 
+        // speed
         this.animationFrameLimit = config.animationFrameLimit || 8;
         this.animationFrameProgress = this.animationFrameLimit;
 
@@ -81,10 +87,10 @@ class Sprite {
         const [frameX, frameY] = this.frame;
 
         this.isLoaded && ctx.drawImage(this.image,
-            frameX * 32, frameY * 32,
-            32, 32,
+            frameX * this.objectSizeX, frameY * this.objectSizeY,
+            this.objectSizeX, this.objectSizeY,
             x, y,
-            32, 32
+            this.objectSizeX, this.objectSizeY
         )
 
         this.updateAnimationProgress();

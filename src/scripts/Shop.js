@@ -3,6 +3,7 @@ class Shop extends GameObject {
     super(config);
     this.movingProgressRemaining = 0;
     this.isStanding = false;
+    this.id = config.id;
 
     this.isPlayerControlled = config.isPlayerControlled || false;
 
@@ -12,6 +13,7 @@ class Shop extends GameObject {
       "left": ["x", -1],
       "right": ["x", 1],
     }
+
   }
 
   update(state) {
@@ -26,7 +28,7 @@ class Shop extends GameObject {
       //Case: We're keyboard ready and have an arrow pressed
       if (!state.map.isCutscenePlaying && this.isPlayerControlled && state.arrow) {
         this.startBehavior(state, {
-          type: "walk",
+          type: "move",
           direction: state.arrow
         })
       }
@@ -38,7 +40,7 @@ class Shop extends GameObject {
     //Set character direction to whatever behavior has
     this.direction = behavior.direction;
 
-    if (behavior.type === "walk") {
+    if (behavior.type === "move") {
 
       //Stop here if space is taken (with wall)
       if (state.map.isSpaceTaken(this.x, this.y, this.direction)) {
@@ -55,7 +57,7 @@ class Shop extends GameObject {
       this.updateSprite(state);
     }
 
-    if (behavior.type === "stand") {
+    if (behavior.type === "still") {
       this.isStanding = true;
       setTimeout(() => {
         utils.emitEvent("PersonStandComplete", {

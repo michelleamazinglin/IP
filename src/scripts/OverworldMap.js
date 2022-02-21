@@ -233,9 +233,25 @@ window.OverworldMaps = {
                 ]
             }),
             busStop: new Shop({
-                x: utils.withGrid(28),
+                x: utils.withGrid(29),
                 y: utils.withGrid(12),
                 src: "./dist/images/Objects/busStop.png",
+                objectSizeX: 48,
+                objectSizeY: 32,
+            }),
+            car: new Shop({
+                x: utils.withGrid(19),
+                y: utils.withGrid(18),
+                src: "./dist/images/Objects/car.png",
+                objectSizeX: 48,
+                objectSizeY: 32,
+            }),
+            bus: new Shop({
+                x: utils.withGrid(28),
+                y: utils.withGrid(16),
+                src: "./dist/images/Objects/bus.png",
+                objectSizeX: 64,
+                objectSizeY: 32,
             }),
         }
     },

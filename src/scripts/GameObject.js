@@ -1,7 +1,7 @@
 class GameObject {
     constructor(config) {
         this.id = null;
-        this.isMounted = false;
+        this.isMounted = config.isMounted || false;
         this.x = config.x || 0;
         this.y = config.y || 0;
         this.direction = config.direction || "down";
@@ -9,6 +9,8 @@ class GameObject {
             gameObject: this,
             src: config.src || "./dist/images/characters/people/mainCharacter.png",
             useShadow: config.useShadow || false,
+            objectSizeX: config.objectSizeX || 32,
+            objectSizeY: config.objectSizeY || 32,
         });
         this.behaviorLoop = config.behaviorLoop || [];
         this.behaviorLoopIndex = 0;
