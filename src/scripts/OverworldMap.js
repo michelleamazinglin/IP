@@ -354,7 +354,7 @@ window.OverworldMaps = {
             [utils.asGridCoord(5, 10)]: [
                 {
                     events: [
-                        { type: "changeMap", map: "Kitchen" }
+                        { type: "changeMap", map: "Street" }
                     ]
                 }
             ]
