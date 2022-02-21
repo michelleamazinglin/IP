@@ -57,7 +57,7 @@ class Shop extends GameObject {
       this.updateSprite(state);
     }
 
-    if (behavior.type === "still") {
+    if (behavior.type === "stand") {
       this.isStanding = true;
       setTimeout(() => {
         utils.emitEvent("PersonStandComplete", {
@@ -85,7 +85,7 @@ class Shop extends GameObject {
 
   updateSprite() {
     if (this.movingProgressRemaining > 0) {
-      this.sprite.setAnimation("walk-" + this.direction);
+      this.sprite.setAnimation("move-" + this.direction);
       return;
     }
     this.sprite.setAnimation("idle-" + this.direction);

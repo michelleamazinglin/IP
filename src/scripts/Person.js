@@ -39,18 +39,18 @@ class Person extends GameObject {
     this.direction = behavior.direction;
 
     if (behavior.type === "walk") {
-
-      //Stop here if space is taken (with wall)
+      //Stop here if space is not free
       if (state.map.isSpaceTaken(this.x, this.y, this.direction)) {
 
         behavior.retry && setTimeout(() => {
           this.startBehavior(state, behavior)
-        },10)
+        }, 10);
+
         return;
       }
 
       //Ready to walk!
-      state.map.moveWall(this.x, this.y, this.direction); //remove the collision the person was loaded on
+      state.map.moveWall(this.x, this.y, this.direction);
       this.movingProgressRemaining = 16;
       this.updateSprite(state);
     }
@@ -64,7 +64,7 @@ class Person extends GameObject {
         this.isStanding = false;
       }, behavior.time)
     }
-    
+
   }
 
   updatePosition() {
@@ -88,6 +88,5 @@ class Person extends GameObject {
     }
     this.sprite.setAnimation("idle-" + this.direction);
   }
-
 
 }

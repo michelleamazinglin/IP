@@ -94,6 +94,7 @@ class OverworldMap {
         const { x, y } = utils.nextPosition(wasX, wasY, direction);
         this.addWall(x, y);
     }
+    
 
 }
 
@@ -111,12 +112,6 @@ window.OverworldMaps = {
                 x: utils.withGrid(7),
                 y: utils.withGrid(9),
                 src: "./dist/images/characters/people/npc1.png",
-                behaviorLoop: [
-                    // { type: "stand", direction: "left", time: 800 },
-                    // { type: "stand", direction: "up", time: 800 },
-                    // { type: "stand", direction: "right", time: 1200 },
-                    // { type: "stand", direction: "up", time: 300 },
-                ],
                 talking: [
                     {
                         events: [
@@ -207,7 +202,6 @@ window.OverworldMaps = {
                 }
             ]
         }
-
     },
     Street: {
         lowerSrc: "./dist/images/maps/StreetLower.png",
@@ -215,8 +209,8 @@ window.OverworldMaps = {
         gameObjects: {
             mainCharacter: new Person({
                 isPlayerControlled: true,
-                x: utils.withGrid(21),
-                y: utils.withGrid(10),
+                x: utils.withGrid(22),
+                y: utils.withGrid(12),
                 useShadow: true,
             }),
             busTicket: new Shop({
@@ -240,11 +234,78 @@ window.OverworldMaps = {
                 objectSizeY: 32,
             }),
             car: new Shop({
-                x: utils.withGrid(19),
+                x: utils.withGrid(37),
                 y: utils.withGrid(18),
                 src: "./dist/images/Objects/car.png",
                 objectSizeX: 48,
                 objectSizeY: 32,
+
+                behaviorLoop: [
+                    { type: "move", direction: "left"},
+                    { type: "move", direction: "left" },
+                    { type: "move", direction: "left" },
+                    { type: "move", direction: "left"},
+                    { type: "move", direction: "left"},
+                    { type: "move", direction: "left" },
+                    { type: "move", direction: "left" },
+                    { type: "move", direction: "left" },
+                    { type: "move", direction: "left" },
+                    { type: "move", direction: "left" },
+                    { type: "move", direction: "left" },
+                    { type: "move", direction: "left" },
+                    { type: "move", direction: "left" },
+                    { type: "move", direction: "left" },
+                    { type: "move", direction: "left" },
+                    { type: "move", direction: "left" },
+                    { type: "move", direction: "left" },
+                    { type: "move", direction: "left" },
+                    { type: "move", direction: "left" },
+                    { type: "move", direction: "left" },
+                    { type: "move", direction: "left" },
+                    { type: "move", direction: "left" },
+                    { type: "move", direction: "left" },
+                    { type: "move", direction: "left" },
+                    { type: "move", direction: "left" },
+                    { type: "move", direction: "left" },
+                    { type: "move", direction: "left" },
+                    { type: "move", direction: "left" },
+                    { type: "move", direction: "left" },
+                    { type: "move", direction: "left" },
+                    { type: "move", direction: "left" },
+                    { type: "move", direction: "left" },
+                    { type: "move", direction: "right" },
+                    { type: "move", direction: "right" },
+                    { type: "move", direction: "right" },
+                    { type: "move", direction: "right" },
+                    { type: "move", direction: "right" },
+                    { type: "move", direction: "right" },
+                    { type: "move", direction: "right" },
+                    { type: "move", direction: "right" },
+                    { type: "move", direction: "right" },
+                    { type: "move", direction: "right" },
+                    { type: "move", direction: "right" },
+                    { type: "move", direction: "right" },
+                    { type: "move", direction: "right" },
+                    { type: "move", direction: "right" },
+                    { type: "move", direction: "right" },
+                    { type: "move", direction: "right" },
+                    { type: "move", direction: "right" },
+                    { type: "move", direction: "right" },
+                    { type: "move", direction: "right" },
+                    { type: "move", direction: "right" },
+                    { type: "move", direction: "right" },
+                    { type: "move", direction: "right" },
+                    { type: "move", direction: "right" },
+                    { type: "move", direction: "right" },
+                    { type: "move", direction: "right" },
+                    { type: "move", direction: "right" },
+                    { type: "move", direction: "right" },
+                    { type: "move", direction: "right" },
+                    { type: "move", direction: "right" },
+                    { type: "move", direction: "right" },
+                    { type: "move", direction: "right" },
+                    { type: "move", direction: "right" },
+                ],
             }),
             bus: new Shop({
                 x: utils.withGrid(28),
@@ -252,7 +313,52 @@ window.OverworldMaps = {
                 src: "./dist/images/Objects/bus.png",
                 objectSizeX: 64,
                 objectSizeY: 32,
+
             }),
+        },
+        walls:{
+            [utils.asGridCoord(21, 7)]: true,
+        },
+        cutsceneSpaces: {
+            [utils.asGridCoord(22, 11)]: [
+                {
+                    events: [
+                        { type: "changeMap", map: "Home" }
+                    ]
+                }
+            ],
+            [utils.asGridCoord(29, 8)]: [
+                {
+                    events: [
+                        { type: "changeMap", map: "Kitchen" }
+                    ]
+                }
+            ]
+        }
+    },
+    Kitchen: {
+        lowerSrc: "./dist/images/maps/KitchenLower.png",
+        upperSrc: "./dist/images/maps/KitchenUpper.png",
+        gameObjects: {
+            mainCharacter: new Person({
+                isPlayerControlled: true,
+                x: utils.withGrid(5),
+                y: utils.withGrid(5),
+                useShadow: true,
+            }),
+        },
+        walls: {
+            [utils.asGridCoord(0, 1)]: true,
+        },
+        cutsceneSpaces: {
+            [utils.asGridCoord(5, 10)]: [
+                {
+                    events: [
+                        { type: "changeMap", map: "Kitchen" }
+                    ]
+                }
+            ]
         }
     },
 }
+

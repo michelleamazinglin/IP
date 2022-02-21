@@ -13,7 +13,7 @@ class Sprite {
 
         //Shadow
         this.shadow = new Image();
-        this.useShadow = config.useShadow || false;
+        this.useShadow = config.useShadow || false
         if (this.useShadow) {
             this.shadow.src = "./dist/images/characters/shadow.png";
         }
@@ -31,8 +31,8 @@ class Sprite {
             "walk-right": [[1, 1], [0, 1], [3, 1], [0, 1],],
             "walk-up": [[1, 2], [0, 2], [3, 2], [0, 2],],
             "walk-left": [[1, 3], [0, 3], [3, 3], [0, 3],],
-            "car-move": [[0, 0],[0,1]],
-            "car-still": [[0, 0]],
+            "move-left": [[0, 0], [1, 0]],
+            "move-right": [[0, 1], [1, 1]],
         }
         this.currentAnimation = config.currentAnimation || "idle-down";
         this.currentAnimationFrame = 0;

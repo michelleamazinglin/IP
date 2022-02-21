@@ -66,7 +66,7 @@ class Overworld {
   }
 
   init() {
-    this.startMap(window.OverworldMaps.Street);
+    this.startMap(window.OverworldMaps.Home);
 
     this.bindActionInput();
     this.bindMainCharacterPositionCheck();

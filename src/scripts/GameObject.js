@@ -15,12 +15,16 @@ class GameObject {
         this.behaviorLoop = config.behaviorLoop || [];
         this.behaviorLoopIndex = 0;
 
+
+
         this.talking = config.talking || [];
     }
 
     mount(map) {
         this.isMounted = true;
-        map.addWall(this.x, this.y); //add collision to the npc or gameobjects
+        map.addWall(this.x , this.y); //add collision to the npc or gameobjects
+
+  
 
         //If we have a behavior, kick off after a short delay
         setTimeout(() => {
