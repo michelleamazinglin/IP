@@ -107,11 +107,12 @@ window.OverworldMaps = {
                 isPlayerControlled: true,
                 x: utils.withGrid(6),
                 y: utils.withGrid(6),
+                src: "dist/images/Characters/people/mainCharacter.png",
             }),
             mom: new Person({
                 x: utils.withGrid(7),
                 y: utils.withGrid(9),
-                src: "./dist/images/characters/people/npc1.png",
+                src: "dist/images/Characters/people/npc1.png",
                 talking: [
                     {
                         events: [
@@ -125,7 +126,7 @@ window.OverworldMaps = {
             dad: new Person({
                 x: utils.withGrid(8),
                 y: utils.withGrid(5),
-                src: "./dist/images/characters/people/npc3.png",
+                src: "dist/images/Characters/people/npc3.png",
                 // behaviorLoop: [
                 //   { type: "walk",  direction: "left" },
                 //   { type: "stand",  direction: "up", time: 800 },
@@ -212,6 +213,7 @@ window.OverworldMaps = {
                 x: utils.withGrid(22),
                 y: utils.withGrid(12),
                 useShadow: true,
+                src: "dist/images/Characters/people/mainCharacter.png",
             }),
             busTicket: new Shop({
                 x: utils.withGrid(32),
@@ -345,6 +347,7 @@ window.OverworldMaps = {
                 x: utils.withGrid(5),
                 y: utils.withGrid(5),
                 useShadow: true,
+                src: "dist/images/Characters/people/mainCharacter.png",
             }),
         },
         walls: {

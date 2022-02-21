@@ -7,7 +7,7 @@ class GameObject {
         this.direction = config.direction || "down";
         this.sprite = new Sprite({
             gameObject: this,
-            src: config.src || "./dist/images/characters/people/mainCharacter.png",
+            src: config.src,
             useShadow: config.useShadow || false,
             objectSizeX: config.objectSizeX || 32,
             objectSizeY: config.objectSizeY || 32,
@@ -23,8 +23,6 @@ class GameObject {
     mount(map) {
         this.isMounted = true;
         map.addWall(this.x , this.y); //add collision to the npc or gameobjects
-
-  
 
         //If we have a behavior, kick off after a short delay
         setTimeout(() => {
