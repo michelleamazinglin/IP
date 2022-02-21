@@ -108,12 +108,12 @@ window.OverworldMaps = {
                 x: utils.withGrid(6),
                 y: utils.withGrid(6),
                 useShadow: true,
-                src: "dist/images/characters/people/mainCharacter.png",
+                src: "dist/images/Characters/people/mainCharacter.png",
             }),
             mom: new Person({
                 x: utils.withGrid(7),
                 y: utils.withGrid(9),
-                src: "dist/images/characters/people/npc1.png",
+                src: "dist/images/Characters/people/npc1.png",
                 useShadow: true,
                 talking: [
                     {
@@ -216,12 +216,12 @@ window.OverworldMaps = {
                 x: utils.withGrid(22),
                 y: utils.withGrid(12),
                 useShadow: true,
-                src: "dist/images/characters/people/mainCharacter.png",
+                src: "dist/images/Characters/people/mainCharacter.png",
             }),
             busTicket: new Shop({
                 x: utils.withGrid(32),
                 y: utils.withGrid(12),
-                src: "./dist/images/objects/busTickets.png",
+                src: "./dist/images/Objects/busTickets.png",
                 talking: [
                     {
                         events: [
@@ -234,14 +234,14 @@ window.OverworldMaps = {
             busStop: new Shop({
                 x: utils.withGrid(29),
                 y: utils.withGrid(12),
-                src: "./dist/images/objects/busStop.png",
+                src: "./dist/images/Objects/busStop.png",
                 objectSizeX: 48,
                 objectSizeY: 32,
             }),
             car: new Shop({
                 x: utils.withGrid(37),
                 y: utils.withGrid(18),
-                src: "./dist/images/objects/car.png",
+                src: "./dist/images/Objects/car.png",
                 objectSizeX: 48,
                 objectSizeY: 32,
 
@@ -315,7 +315,7 @@ window.OverworldMaps = {
             bus: new Shop({
                 x: utils.withGrid(28),
                 y: utils.withGrid(16),
-                src: "./dist/images/objects/bus.png",
+                src: "./dist/images/Objects/bus.png",
                 objectSizeX: 64,
                 objectSizeY: 32,
 
@@ -350,7 +350,7 @@ window.OverworldMaps = {
                 x: utils.withGrid(5),
                 y: utils.withGrid(8),
                 useShadow: true,
-                src: "dist/images/characters/people/mainCharacter.png",
+                src: "dist/images/Characters/people/mainCharacter.png",
             }),
         },
         walls: {
