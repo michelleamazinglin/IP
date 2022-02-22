@@ -517,6 +517,13 @@ window.OverworldMaps = {
                     ]
                 }
             ],
+            [utils.asGridCoord(26, 5)]: [
+                {
+                    events: [
+                        { type: "changeMap", map: "AirPort" }
+                    ]
+                }
+            ],
         }
     },
     DiningRoomUSA: {
@@ -575,6 +582,31 @@ window.OverworldMaps = {
                 }
             ],
             [utils.asGridCoord(7, 24)]: [
+                {
+                    events: [
+                        { type: "changeMap", map: "Street" }
+                    ]
+                }
+            ]
+        }
+    },
+    AirPort: {
+        lowerSrc: "./dist/images/maps/AirPortLower.png",
+        upperSrc: "./dist/images/maps/AirPortUpper.png",
+        gameObjects: {
+            mainCharacter: new Person({
+                isPlayerControlled: true,
+                x: utils.withGrid(7),
+                y: utils.withGrid(15),
+                useShadow: true,
+                src: "dist/images/Characters/people/mainCharacter.png",
+            }),
+        },
+        walls: {
+            [utils.asGridCoord(0, 1)]: true,
+        },
+        cutsceneSpaces: {
+            [utils.asGridCoord(7, 16)]: [
                 {
                     events: [
                         { type: "changeMap", map: "Street" }
