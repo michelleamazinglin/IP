@@ -52,7 +52,7 @@ class OverworldEvent {
     }, {
       type: "move",
       direction: this.event.direction,
-      retry: true
+      retry: false
     })
 
     //Set up a handler to complete when correct person is done walking, then resolve the event

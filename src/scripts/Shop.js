@@ -44,14 +44,13 @@ class Shop extends GameObject {
 
       //Stop here if space is taken (with wall)
       if (state.map.isSpaceTaken(this.x, this.y, this.direction)) {
-
         behavior.retry && setTimeout(() => {
           this.startBehavior(state, behavior)
-        },10)
+        },1000)
         return;
       }
 
-      //Ready to walk!
+      //Ready to move!
       state.map.moveWall(this.x, this.y, this.direction); //remove the collision the person was loaded on
       this.movingProgressRemaining = 16;
       this.updateSprite(state);
@@ -75,7 +74,7 @@ class Shop extends GameObject {
     this.movingProgressRemaining -= 1;
 
     if (this.movingProgressRemaining === 0) {
-      //We finished the walk!
+      //We finished the move!
       utils.emitEvent("PersonWalkingComplete", {
         whoId: this.id
       })
