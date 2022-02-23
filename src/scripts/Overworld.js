@@ -79,6 +79,7 @@ class Overworld {
     this.map.startCutscene([
       { type: "textMessage", text: "emmmm..." },
       { type: "textMessage", text: "I want to travel..." },
+      { type: "textMessage", text: "Lets go tell mom first" },
     ])
   }
 }
