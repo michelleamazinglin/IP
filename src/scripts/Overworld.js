@@ -66,7 +66,7 @@ class Overworld {
   }
 
   init() {
-    this.startMap(window.OverworldMaps.AirPort);
+    this.startMap(window.OverworldMaps.Home);
 
     this.bindActionInput();
     this.bindMainCharacterPositionCheck();
@@ -77,8 +77,8 @@ class Overworld {
     this.startGameLoop();
 
     this.map.startCutscene([
-      { type: "textMessage", text: "hello" },
-      { type: "textMessage", text: "welcome to the game" },
+      { type: "textMessage", text: "emmmm..." },
+      { type: "textMessage", text: "I want to travel..." },
     ])
   }
 }
