@@ -1,5 +1,6 @@
 import "./styles/index.css";
-import "./styles/textMessage.css";
+import "./styles/TextMessage.css";
+import "./styles/SceneTransition.css";
 
 // import "./scripts/utils";
 // import "./scripts/DirectionInput";
