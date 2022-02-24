@@ -1,0 +1,13 @@
+.Status {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 36px;
+  padding: 4px;
+}
+.Status_p {
+  margin: 0;
+  font-size: 8px;
+  color: white;
+}

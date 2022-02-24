@@ -67,9 +67,14 @@ class Overworld {
 
   init() {
     this.startMap(window.OverworldMaps.Home);
+    
+
 
     this.bindActionInput();
     this.bindMainCharacterPositionCheck();
+
+    this.status = new Status();
+    this.status.init(document.querySelector(".game-container"));
 
     this.directionInput = new DirectionInput();
     this.directionInput.init();
