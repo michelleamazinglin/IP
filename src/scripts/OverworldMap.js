@@ -434,8 +434,6 @@ window.OverworldMaps = {
             [utils.asGridCoord(2, 4)]: true,
             [utils.asGridCoord(3, 4)]: true,
             [utils.asGridCoord(4, 4)]: true,
-            [utils.asGridCoord(4, 7)]: true,
-            [utils.asGridCoord(4, 8)]: true,
             [utils.asGridCoord(1, 13)]: true,
             [utils.asGridCoord(0, 12)]: true,
             [utils.asGridCoord(0, 15)]: true,
@@ -517,7 +515,14 @@ window.OverworldMaps = {
                     ]
                 }
             ],
-            [utils.asGridCoord(26, 5)]: [
+            [utils.asGridCoord(4, 7)]: [
+                {
+                    events: [
+                        { type: "changeMap", map: "AirPort" }
+                    ]
+                }
+            ],
+            [utils.asGridCoord(4, 8)]: [
                 {
                     events: [
                         { type: "changeMap", map: "AirPort" }
@@ -596,8 +601,8 @@ window.OverworldMaps = {
         gameObjects: {
             mainCharacter: new Person({
                 isPlayerControlled: true,
-                x: utils.withGrid(7),
-                y: utils.withGrid(15),
+                x: utils.withGrid(15),
+                y: utils.withGrid(13),
                 useShadow: true,
                 src: "dist/images/Characters/people/mainCharacter.png",
             }),
@@ -606,7 +611,7 @@ window.OverworldMaps = {
             [utils.asGridCoord(0, 1)]: true,
         },
         cutsceneSpaces: {
-            [utils.asGridCoord(7, 16)]: [
+            [utils.asGridCoord(16, 13)]: [
                 {
                     events: [
                         { type: "changeMap", map: "Street" }
