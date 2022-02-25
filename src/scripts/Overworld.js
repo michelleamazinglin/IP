@@ -87,6 +87,7 @@ class Overworld {
       // { type: "textMessage", text: "I want to travel..." },
       // { type: "textMessage", text: "Lets go tell mom first" },
       // { type: "addCash", amount: 10 },
+      // { type: "addEnergy", amount: 10 },
     ])
   }
 }

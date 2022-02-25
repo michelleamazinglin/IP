@@ -99,6 +99,18 @@ class OverworldEvent {
     resolve();
   }
 
+  addEnergy(resolve) {
+    const status = new Status;
+    let amount = this.event.amount;
+    if (status.energy + amount < 100) {
+      status.addEnergy(amount);
+      resolve();
+    } else {
+      resolve();
+    }
+
+  }
+
   init() {
     return new Promise(resolve => {
       this[this.event.type](resolve)
