@@ -92,9 +92,16 @@ class OverworldEvent {
     })
   }
 
+  addCash(resolve){
+    const status = new Status;
+    let amount = this.event.amount;
+    status.addCash(amount);
+    resolve();
+  }
+
   init() {
     return new Promise(resolve => {
-      this[this.event.type](resolve)      
+      this[this.event.type](resolve)
     })
   }
 

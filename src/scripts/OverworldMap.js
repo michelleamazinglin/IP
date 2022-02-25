@@ -119,6 +119,7 @@ window.OverworldMaps = {
                         events: [
                             { type: "textMessage", text: "I am glad you are ready to travel", faceMainCharacter: "mom" },
                             { type: "textMessage", text: "Here is some cash to get you started" },
+                            { type: "addCash", amount: 100 },
                             { type: "textMessage", text: "stay safe and have fun" },
                         ]
                     }

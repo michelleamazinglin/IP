@@ -21,7 +21,7 @@ class TextMessage {
       text: this.text
     })
 
-    this.element.querySelector("button").addEventListener("click", () => {
+    this.element.querySelector(".TextMessage_button").addEventListener("click", () => {
       //Close the text message
       this.done();
     });

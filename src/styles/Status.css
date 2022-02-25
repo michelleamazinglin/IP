@@ -1,13 +1,32 @@
 .Status {
   position: absolute;
-  left: 0;
   right: 0;
   top: 0;
-  height: 36px;
+  height: 32px;
+  width: 104px;
   padding: 4px;
+  background: rgba(255,232,210,0.75);
+  border: 1px solid var(--menu-border-color);
+  color: var(--menu-font-color);
+  padding: 6px;
 }
 .Status_p {
   margin: 0;
-  font-size: 8px;
-  color: white;
+  font-size: 6.5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
+
+.bar {
+    border: 1px solid white;
+    height:3px;
+    width:45px;
+}
+
+.bar > div {
+    position: relative;
+    height: 100%;
+    background-color: white;
+}
+
