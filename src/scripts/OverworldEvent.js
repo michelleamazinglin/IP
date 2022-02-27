@@ -108,8 +108,13 @@ class OverworldEvent {
     } else {
       resolve();
     }
-
   }
+
+  // keyBoardMenu(resolve) {
+  //   const keyBoardMenu = new KeyboardMenu;
+  //   let options = this.event.options;
+  //   keyBoardMenu.
+  // }
 
   init() {
     return new Promise(resolve => {
