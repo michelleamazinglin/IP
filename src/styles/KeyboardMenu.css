@@ -2,7 +2,10 @@
   border: 1px solid var(--border-color);
   background: var(--menu-background);
   position: absolute;
+  right:0;
+  bottom:36px;
 }
+
 .KeyboardMenu button {
  display: flex;
  align-items: center;
@@ -14,14 +17,17 @@
  height: 20px;
  cursor:pointer;
  font-family:inherit;
- padding:0;
+ padding:px;
  padding-left: 1em;
- font-size: 10px;
+ font-size: 8px;
+ 
+
 }
 .KeyboardMenu button:focus {
  background: var(--menu-selected-background);
  outline: 0;
 }
+
 
 .KeyboardMenu .option {
   position: relative;
@@ -35,24 +41,19 @@
 
  .DescriptionBox {
   position:absolute;
-  bottom:0;
+  width: 95%;
+  bottom:0px;
   left:0;
   right:0;
   color: var(--menu-font-color);
-  border-top: 1px solid var(--border-color);
-  background: var(--menu-background);
+  /* border: 1px solid var(--border-color); */
+  /* background: var(--menu-background); */
   padding: 2px;
+  font-size: 8px;
+  margin:0;
  }
  .DescriptionBox p {
-  font-size: 10px;
+  font-size: 8px;
   margin:0;
  }
 
-
-
- /* Battle specific */
-.Battle .KeyboardMenu {
-  right:0;
-  bottom:0;
-  width: 140px;
-}

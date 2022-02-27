@@ -1,7 +1,7 @@
 class Status {
     constructor() {
         this.cash = 0;
-        this.energy = 100;
+        this.energy = 90;
         this.amount = 2;
     }
 

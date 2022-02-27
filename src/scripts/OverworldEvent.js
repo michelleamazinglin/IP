@@ -75,6 +75,7 @@ class OverworldEvent {
 
     const message = new TextMessage({
       text: this.event.text,
+      options: this.event.options,
       onComplete: () => resolve()
     })
     message.init(document.querySelector(".game-container"))
@@ -110,11 +111,7 @@ class OverworldEvent {
     }
   }
 
-  // keyBoardMenu(resolve) {
-  //   const keyBoardMenu = new KeyboardMenu;
-  //   let options = this.event.options;
-  //   keyBoardMenu.
-  // }
+
 
   init() {
     return new Promise(resolve => {
