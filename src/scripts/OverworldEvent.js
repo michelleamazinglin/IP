@@ -100,6 +100,13 @@ class OverworldEvent {
     resolve();
   }
 
+  payCash(resolve) {
+    const status = new Status;
+    let amount = this.event.amount;
+    status.payCash(amount);
+    resolve();
+  }
+
   addEnergy(resolve) {
     const status = new Status;
     let amount = this.event.amount;

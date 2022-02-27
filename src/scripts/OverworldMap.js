@@ -219,8 +219,23 @@ window.OverworldMaps = {
                 talking: [
                     {
                         events: [
-                            { type: "textMessage", text: "Join our bus tour to discover more..."},
-                            { type: "textMessage", text: "bus ticket is 5 dollars" },
+                            { type: "textMessage", 
+                                text: "Join our bus tour to discover more...",
+                                options: 
+                                [
+                                        {
+                                            description: "ticket is 5 dollars",
+                                            label: "Get one ticket",
+                                            handler: () => {
+                                            const status = new Status;
+                                            status.payCash(5);
+                                            const keyboardMenu = new KeyboardMenu;
+                                            keyboardMenu.end();
+                                            }
+                                        },
+                                ]
+                            },
+                            
                         ]
                     }
                 ]

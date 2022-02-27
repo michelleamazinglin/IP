@@ -27,6 +27,10 @@
  background: var(--menu-selected-background);
  outline: 0;
 }
+.KeyboardMenu button:hover {
+ background: var(--menu-selected-background);
+ outline: 0;
+}
 
 
 .KeyboardMenu .option {

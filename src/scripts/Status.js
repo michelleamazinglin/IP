@@ -6,6 +6,13 @@ class Status {
     }
 
 
+    payCash(amount) {
+        let cash = this.cash;
+        cash -= amount;
+        this.cash = cash;
+        let element = document.querySelector(".cash");
+        element.innerHTML = "Cash: " + this.cash;
+    }
 
     addCash(amount) {
         let cash = this.cash;
