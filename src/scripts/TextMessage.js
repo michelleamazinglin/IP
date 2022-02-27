@@ -26,7 +26,8 @@ class TextMessage {
     this.element.querySelector(".Next_button").addEventListener("click", () => {
       //Close the text message
       this.done();
-
+      // let keyboardMenu = new KeyboardMenu();
+      // keyboardMenu.end();
     });
 
     this.actionListener = new KeyPressListener("Enter", () => {

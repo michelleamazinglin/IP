@@ -25,9 +25,15 @@ class KeyboardMenu {
         const chosenOption = this.options[ index ];
         chosenOption.handler();
       })
-      // button.addEventListener("mouseenter", () => {
-      //   button.focus();
-      // })
+      button.addEventListener("mouseenter", () => {
+        button.focus();
+      })
+
+      button.addEventListener("mouseleave", () => {
+        button.blur();
+        document.querySelector(".DescriptionBox").innerText = "";
+      })
+      
       button.addEventListener("focus", () => {
         this.prevFocus = button;
         if (button.dataset.description != "undefined") {
