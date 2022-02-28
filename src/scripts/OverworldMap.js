@@ -212,6 +212,21 @@ window.OverworldMaps = {
                 useShadow: true,
                 src: "dist/images/Characters/people/mainCharacter.png",
             }),
+            USnpc: new Person({
+                x: utils.withGrid(15),
+                y: utils.withGrid(11),
+                useShadow: true,
+                src: "dist/images/Characters/people/UncleSam.png",
+                talking: [
+                    {
+                        events: [
+                            { type: "textMessage", text: "Hi, I'm Uncle Sam", faceMainCharacter: "USnpc" },
+                            { type: "textMessage", text: "English is primary language in United States" },
+                            { type: "textMessage", text: "Having fun exploring..." },
+                        ]
+                    }
+                ]
+            }),
             busTicket: new Shop({
                 x: utils.withGrid(32),
                 y: utils.withGrid(12),
@@ -231,6 +246,13 @@ window.OverworldMaps = {
                                             status.payCash(5);
                                             const keyboardMenu = new KeyboardMenu;
                                             keyboardMenu.end();
+                                            }
+                                        },
+                                        {
+                                            label: "Maybe next time",
+                                            handler: () => {
+                                                const keyboardMenu = new KeyboardMenu;
+                                                keyboardMenu.end();
                                             }
                                         },
                                 ]
