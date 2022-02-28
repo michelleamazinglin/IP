@@ -59,6 +59,5 @@ class GameObject {
         //Do it again!
         this.doBehaviorEvent(map);
 
-
     }
 }

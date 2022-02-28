@@ -220,12 +220,24 @@ window.OverworldMaps = {
                 talking: [
                     {
                         events: [
-                            { type: "textMessage", text: "Hi, I'm Uncle Sam", faceMainCharacter: "USnpc" },
-                            { type: "textMessage", text: "English is primary language in United States" },
-                            { type: "textMessage", text: "Having fun exploring..." },
+                            { type: "textMessage", text: "Hi, My name is Uncle Sam", faceMainCharacter: "USnpc" },
+                            { type: "textMessage", text: "The white building to the north is my office, you can make a visit sometime" },
+                            { type: "textMessage", text: "But...Please don't read the diary on my table" },
                         ]
                     }
-                ]
+                ],
+                behaviorLoop: [
+                    { type: "stand", direction: "left", time: 1000 },
+                    { type: "walk", direction: "left" },
+                    { type: "walk", direction: "left" },
+                    { type: "stand", direction: "up", time: 1000 },
+                    { type: "walk", direction: "up" },
+                    { type: "stand", direction: "right", time: 1000 },
+                    { type: "walk", direction: "right" },
+                    { type: "walk", direction: "right" },
+                    { type: "stand", direction: "down", time: 1000 },
+                    { type: "walk", direction: "down" },
+                ],
             }),
             busTicket: new Shop({
                 x: utils.withGrid(32),
@@ -568,6 +580,13 @@ window.OverworldMaps = {
                     ]
                 }
             ],
+            [utils.asGridCoord(20, 7)]: [
+                {
+                    events: [
+                        { type: "changeMap", map: "Office" }
+                    ]
+                }
+            ],
         }
     },
     DiningRoomUSA: {
@@ -651,6 +670,31 @@ window.OverworldMaps = {
         },
         cutsceneSpaces: {
             [utils.asGridCoord(16, 13)]: [
+                {
+                    events: [
+                        { type: "changeMap", map: "Street" }
+                    ]
+                }
+            ]
+        }
+    },
+    Office: {
+        lowerSrc: "./dist/images/maps/StreetBattle.png",
+        upperSrc: "",
+        gameObjects: {
+            mainCharacter: new Person({
+                isPlayerControlled: true,
+                x: utils.withGrid(5),
+                y: utils.withGrid(3),
+                useShadow: true,
+                src: "dist/images/Characters/people/mainCharacter.png",
+            }),
+        },
+        walls: {
+            [utils.asGridCoord(0, 1)]: true,
+        },
+        cutsceneSpaces: {
+            [utils.asGridCoord(5, 5)]: [
                 {
                     events: [
                         { type: "changeMap", map: "Street" }
