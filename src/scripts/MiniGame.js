@@ -23,8 +23,8 @@ class MiniGame {
         book.classList.add("diary");
         book.innerHTML = (`
             <video class="diaryAnimation" width="320" height="240" controls autoplay>
-                <source src="dist/images/videos/usHistory.mp4" type="video/mp4">
-                <source src="dist/images/videos/usHistory.ogg" type="video/ogg">
+                <source src="dist/images/videos/officeDiary.mp4" type="video/mp4">
+                <source src="dist/images/videos/officeDiary.ogg" type="video/ogg">
                 Your browser does not support the video tag.
             </video>
         `)
