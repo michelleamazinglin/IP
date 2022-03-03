@@ -66,9 +66,7 @@ class Overworld {
   }
 
   init() {
-    this.startMap(window.OverworldMaps.Street);
-    
-
+    this.startMap(window.OverworldMaps.Home);
 
     this.bindActionInput();
     this.bindMainCharacterPositionCheck();
@@ -82,31 +80,32 @@ class Overworld {
     this.startGameLoop();
 
 
-    // this.map.startCutscene([
-    //   { type: "textMessage", text: "hiiiiiinckjanckjankcnkjanck ajsckanckjanjcki", 
-    //     options: [
-    //       { 
-    //         description: "description1", 
-    //         label: "label",
-    //         handler: () => {
-    //           const status = new Status;
-    //           status.addEnergy(5);
-    //           const keyboardMenu = new KeyboardMenu;
-    //           keyboardMenu.end();
-    //         }
-    //       }, 
-    //       {
-    //         description: "description2", 
-    //         label: "label2", 
-    //         handler: () => {
-    //           const status = new Status;
-    //           status.addCash(5);
-    //           const keyboardMenu = new KeyboardMenu;
-    //           keyboardMenu.end();
-    //         }
-    //       }
-    //     ]
-    //   },  
-    // ])
+    this.map.startCutscene([
+      // { type: "textMessage", text: "hiiiiiinckjanckjankcnkjanck ajsckanckjanjcki", 
+      //   options: [
+      //     { 
+      //       description: "description1", 
+      //       label: "label",
+      //       handler: () => {
+      //         const status = new Status;
+      //         status.addEnergy(5);
+      //         const keyboardMenu = new KeyboardMenu;
+      //         keyboardMenu.end();
+      //       }
+      //     }, 
+      //     {
+      //       description: "description2", 
+      //       label: "label2", 
+      //       handler: () => {
+      //         const status = new Status;
+      //         status.addCash(5);
+      //         const keyboardMenu = new KeyboardMenu;
+      //         keyboardMenu.end();
+      //       }
+      //     }
+      //   ]
+      // },  
+      // { type: "miniGame", gameType: "diary" }
+    ])
   }
 }

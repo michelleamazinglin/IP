@@ -7,7 +7,6 @@ class Sprite {
         this.image.onload = () => {
             this.isLoaded = true;
         }
-
         this.objectSizeX = config.objectSizeX || 32;
         this.objectSizeY = config.objectSizeY || 32;
 

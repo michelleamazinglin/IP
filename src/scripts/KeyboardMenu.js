@@ -71,7 +71,7 @@ class KeyboardMenu{
     //Remove menu element and description element
     document.querySelector(".KeyboardMenu").remove();
     document.querySelector(".DescriptionBox").remove();
-    // document.querySelector(".Next_button").click();
+    document.querySelector(".Next_button").click();
     // document.querySelector(".Next_button").click();
 
     

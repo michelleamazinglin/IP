@@ -118,6 +118,17 @@ class OverworldEvent {
     }
   }
 
+  miniGame(resolve) {
+    let onComplete = () => { resolve();}
+    let gameType = this.event.gameType
+    const miniGame = new MiniGame(
+      gameType,
+      onComplete,
+    )
+    miniGame.init(document.querySelector(".game-container"));
+
+  }
+
 
 
   init() {

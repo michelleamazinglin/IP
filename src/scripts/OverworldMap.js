@@ -374,6 +374,7 @@ window.OverworldMaps = {
             [utils.asGridCoord(25, 5)]: true,
             [utils.asGridCoord(25, 6)]: true,
             [utils.asGridCoord(25, 7)]: true,
+            [utils.asGridCoord(20, 6)]: true,
             // empire state building
             [utils.asGridCoord(13, 7)]: true,
             [utils.asGridCoord(14, 8)]: true,
@@ -600,6 +601,63 @@ window.OverworldMaps = {
                 useShadow: true,
                 src: "dist/images/Characters/people/mainCharacter.png",
             }),
+            chef: new Person({
+                x: utils.withGrid(3),
+                y: utils.withGrid(4),
+                src: "dist/images/Characters/people/npc4.png",
+                useShadow: true,
+                talking: [
+                    {
+                        events: [
+                            { type: "textMessage", text: "Wanna try some food around here?", faceMainCharacter: "chef" },
+                            {
+                                type: "textMessage",
+                                text: "Here are some options...",
+                                options:
+                                    [
+                                        {
+                                            description: "Hamburger is 10 dollars",
+                                            label: "Hamburger",
+                                            handler: () => {
+                                                const status = new Status;
+                                                status.payCash(10);
+                                                status.addEnergy(10);
+                                                const keyboardMenu = new KeyboardMenu;
+                                                keyboardMenu.end();
+                                            }
+                                        },
+                                        {
+                                            description: "Apple Pie is 5 dollars",
+                                            label: "Apple Pie",
+                                            handler: () => {
+                                                const status = new Status;
+                                                status.payCash(5);
+                                                status.addEnergy(5);
+                                                const keyboardMenu = new KeyboardMenu;
+                                                keyboardMenu.end();
+                                            }
+                                        },
+                                        {
+                                            description: "Clam Chowder is 5 dollars",
+                                            label: "Clam Chowder",
+                                            handler: () => {
+                                                const status = new Status;
+                                                status.payCash(5);
+                                                status.addEnergy(5);
+                                                const keyboardMenu = new KeyboardMenu;
+                                                keyboardMenu.end();
+                                            }
+                                        },
+
+                                    ]
+                            },
+                        ]
+                    }
+                ],
+                behaviorLoop: [
+                    { type: "stand", direction: "down" },
+                ],
+            }),
         },
         walls: {
             // bar
@@ -658,6 +716,7 @@ window.OverworldMaps = {
             [utils.asGridCoord(13, 9)]: true,
             [utils.asGridCoord(13, 10)]: true,
             [utils.asGridCoord(13, 11)]: true,
+            [utils.asGridCoord(7, 2)]: true,
         },
         cutsceneSpaces: {
             [utils.asGridCoord(6, 12)]: [
@@ -666,7 +725,26 @@ window.OverworldMaps = {
                         { type: "changeMap", map: "Street" }
                     ]
                 }
-            ]
+            ],
+            [utils.asGridCoord(7, 3)]: [
+                {
+                    events: [
+                        { who: "chef", type: "walk", direction: "right" },
+                        { who: "chef", type: "walk", direction: "right" },
+                        { who: "chef", type: "walk", direction: "right" },
+                        { who: "chef", type: "walk", direction: "right" },
+                        { who: "chef", type: "stand", direction: "up", time: 500 },
+                        { type: "textMessage", text: "That's our kitchen, employees only." },
+                        { type: "textMessage", text: "If you want anything to eat, you can buy it from me." },
+                        { who: "chef", type: "walk", direction: "left" },
+                        { who: "chef", type: "walk", direction: "left" },
+                        { who: "chef", type: "walk", direction: "left" },
+                        { who: "chef", type: "walk", direction: "left" },
+                        { who: "chef", type: "stand", direction: "down" },
+                        { who: "mainCharacter", type: "walk", direction: "down" },
+                    ]
+                }
+            ],
         }
     },
     TheMet: {
@@ -734,25 +812,83 @@ window.OverworldMaps = {
         }
     },
     Office: {
-        lowerSrc: "./dist/images/maps/StreetBattle.png",
-        upperSrc: "",
+        lowerSrc: "./dist/images/maps/usOffice.png",
+        upperSrc: "./dist/images/maps/usOfficeUpper.png",
         gameObjects: {
             mainCharacter: new Person({
                 isPlayerControlled: true,
-                x: utils.withGrid(5),
-                y: utils.withGrid(3),
+                x: utils.withGrid(6),
+                y: utils.withGrid(6),
                 useShadow: true,
                 src: "dist/images/Characters/people/mainCharacter.png",
             }),
+            book: new Shop({
+                x: utils.withGrid(6),
+                y: utils.withGrid(3),
+                src: "",
+                talking: [
+                    {
+                        events: [
+                            { type: "miniGame", gameType: "diary" }
+                        ]
+                    }
+                ]
+            }),
         },
         walls: {
+            // table
+            [utils.asGridCoord(4, 3)]: true,
+            [utils.asGridCoord(5, 3)]: true,
+            [utils.asGridCoord(7, 3)]: true,
+            [utils.asGridCoord(8, 3)]: true,
+            // wall
             [utils.asGridCoord(0, 1)]: true,
+            [utils.asGridCoord(0, 2)]: true,
+            [utils.asGridCoord(0, 3)]: true,
+            [utils.asGridCoord(0, 4)]: true,
+            [utils.asGridCoord(0, 5)]: true,
+            [utils.asGridCoord(0, 6)]: true,
+            [utils.asGridCoord(1, 7)]: true,
+            [utils.asGridCoord(2, 7)]: true,
+            [utils.asGridCoord(3, 7)]: true,
+            [utils.asGridCoord(4, 7)]: true,
+            [utils.asGridCoord(5, 7)]: true,
+            [utils.asGridCoord(7, 7)]: true,
+            [utils.asGridCoord(8, 7)]: true,
+            [utils.asGridCoord(9, 7)]: true,
+            [utils.asGridCoord(10, 7)]: true,
+            [utils.asGridCoord(11, 7)]: true,
+            [utils.asGridCoord(12, 1)]: true,
+            [utils.asGridCoord(12, 2)]: true,
+            [utils.asGridCoord(12, 3)]: true,
+            [utils.asGridCoord(12, 4)]: true,
+            [utils.asGridCoord(12, 5)]: true,
+            [utils.asGridCoord(12, 6)]: true,
+            [utils.asGridCoord(1, 1)]: true,
+            [utils.asGridCoord(2, 1)]: true,
+            [utils.asGridCoord(3, 1)]: true,
+            [utils.asGridCoord(4, 1)]: true,
+            [utils.asGridCoord(5, 1)]: true,
+            [utils.asGridCoord(6, 1)]: true,
+            [utils.asGridCoord(7, 1)]: true,
+            [utils.asGridCoord(8, 1)]: true,
+            [utils.asGridCoord(9, 1)]: true,
+            [utils.asGridCoord(10, 1)]: true,
+            [utils.asGridCoord(11, 1)]: true,
+
         },
         cutsceneSpaces: {
-            [utils.asGridCoord(5, 5)]: [
+            [utils.asGridCoord(6, 7)]: [
                 {
                     events: [
                         { type: "changeMap", map: "Street" }
+                    ]
+                }
+            ],
+            [utils.asGridCoord(6, 2)]: [
+                {
+                    events: [
+                        { type: "miniGame", gameType: "diary" }
                     ]
                 }
             ]
