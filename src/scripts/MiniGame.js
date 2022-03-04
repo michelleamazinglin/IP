@@ -17,8 +17,32 @@ class MiniGame {
         });
     }
 
+    writeMail(){
+        console.log("write mail");
+        let mail = document.createElement("div");
+        mail.classList.add("writeMail");
+        mail.innerHTML = (`
+            <label for="mailText" class="mailTopic">Topic: what do you do on new year's day?</label>
+            <textarea placeholder="Starts here..." rows="10" cols="20" id="mailText" class="mailTextBox"></textarea>
+        `)
+        this.gameElement.appendChild(mail);
+    }
+
+    drawMail() {
+        console.log("draw mail");
+        let mail = document.createElement("div");
+        mail.classList.add("writeMail");
+        mail.innerHTML = (`
+            <label for="mailText" class="mailTopic">Bald Boy and the Magic Seal – Origin: Turkey</label>
+            <textarea rows="10" cols="20" id="mailText" class="mailTextBox">
+                This story explores the magic of friendship through the story of a boy and his loyal dog and cat. When the boy is given a magic seal, he wishes for a palace and the hand of the emperor’s daughter so he can give his mother a better life. He and his mother are happy in their new life before a crafty woman steals the seal from their house. The emperor’s daughter is taken away, the palace vanishes, and the boy and his mother are left alone with no home. The cat and dog vow to get the magic seal back and return their friend’s happiness.
+            </textarea>
+        `)
+        this.gameElement.appendChild(mail);
+    }
+
     diary(){
-        console.log("yay");
+        console.log("diary");
         let book = document.createElement("div");
         book.classList.add("diary");
         book.innerHTML = (`
@@ -42,6 +66,12 @@ class MiniGame {
         }
         if (this.gameType == "happy") {
             return this.happy();
+        }
+        if (this.gameType == "writeMail") {
+            return this.writeMail();
+        }
+        if (this.gameType == "drawMail") {
+            return this.drawMail();
         }
     }
 

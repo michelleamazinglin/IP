@@ -359,6 +359,67 @@ window.OverworldMaps = {
                 objectSizeY: 32,
 
             }),
+            mailBox: new Shop({
+                x: utils.withGrid(19),
+                y: utils.withGrid(11),
+                src: "dist/images/Objects/mail.png",
+                talking: [
+                    {
+                        events: [
+                            {
+                                type: "textMessage",
+                                text: "You can write a letter and send it to others, or you can draw a letter to read. Which one do you prefer?",
+                                options:
+                                    [
+                                        {
+                                            description: "write your own letter, cost 1 dollar for stamp",
+                                            label: "Write",
+                                            handler: () => {                                              
+                                                const keyboardMenu = new KeyboardMenu;
+                                                keyboardMenu.end();
+                                                // let button = document.querySelector(".Next_button");
+                                                // button.click();
+                                                const status = new Status;
+                                                status.payCash(1);
+                                                const eventHandler = new OverworldEvent({
+                                                    event: { type: "miniGame", gameType: "writeMail" },
+                                                    map: "Street",
+                                                })
+                                                eventHandler.init();
+                                            }
+                                        },
+                                        {
+                                            description: "read a random letter",
+                                            label: "Draw",
+                                            handler: () => {
+                                                const keyboardMenu = new KeyboardMenu;
+                                                keyboardMenu.end();
+                                                // let button = document.querySelector(".Next_button");
+                                                // button.click();
+                                                const eventHandler = new OverworldEvent({
+                                                    event: { type: "miniGame", gameType: "drawMail" },
+                                                    map: "Street",
+                                                })
+                                                eventHandler.init();                   
+                                            }
+                                        },
+                                        {
+                                            label: "Maybe next time",
+                                            handler: () => {
+                                                let button = document.querySelector(".Next_button");
+                                                button.click();
+                                                const keyboardMenu = new KeyboardMenu;
+                                                keyboardMenu.end();
+
+                                            }
+                                        },
+                                    ]
+                            },
+
+                        ]
+                    }
+                ]
+            }),
         },
         walls:{
             // the white house

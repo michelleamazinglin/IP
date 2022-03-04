@@ -19,6 +19,19 @@
   width: 120px;
   height: 100px;
 } */
+.writeMail{
+  color:white;
+  text-align: center;
+}
+.mailTopic{
+  font-size: 8px;
+}
+.mailTextBox{
+  font-size: 8px;
+}
+.mailTextBox:focus{
+  outline: none;
+}
 
 .x{
   position: absolute;
