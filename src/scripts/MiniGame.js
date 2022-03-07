@@ -18,7 +18,6 @@ class MiniGame {
     }
 
     writeMail(){
-        console.log("write mail");
         let mail = document.createElement("div");
         mail.classList.add("writeMail");
         mail.innerHTML = (`
@@ -29,7 +28,6 @@ class MiniGame {
     }
 
     drawMail() {
-        console.log("draw mail");
         let mail = document.createElement("div");
         mail.classList.add("writeMail");
         mail.innerHTML = (`
@@ -42,7 +40,6 @@ class MiniGame {
     }
 
     diary(){
-        console.log("diary");
         let book = document.createElement("div");
         book.classList.add("diary");
         book.innerHTML = (`
@@ -56,16 +53,10 @@ class MiniGame {
         
 
     }
-    happy() {
-        console.log("happy");
-    }
 
     check(){
         if (this.gameType == "diary") {
             return this.diary();
-        }
-        if (this.gameType == "happy") {
-            return this.happy();
         }
         if (this.gameType == "writeMail") {
             return this.writeMail();
@@ -84,11 +75,8 @@ class MiniGame {
 
 
     init(container){
-        console.log(this.onComplete)
-        // console.log(this.gameType)
         this.createElement();
         this.check();
-        // console.log(container)
         container.appendChild(this.gameElement);
     }
 

@@ -18,7 +18,6 @@ class KeyboardMenu{
     }).join("");
 
     const buttons = document.querySelectorAll(".optionButton")
-    // console.log(buttons)
     buttons.forEach((button,index) => {
       // this.prevFocus = button;
       button.addEventListener("click", () => {
@@ -90,7 +89,6 @@ class KeyboardMenu{
     
     // this.up = new KeyPressListener("ArrowUp", () => {
     //   const current = Number(this.prevFocus.dataset.button);
-    //   console.log(current);
     //   const prevButton = Array.from(this.listElement.querySelectorAll("button[data-button]")).reverse().find(el => {
     //     let result = el.dataset.button < current;
     //     return result;

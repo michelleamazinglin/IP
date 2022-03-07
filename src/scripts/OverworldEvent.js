@@ -93,30 +93,11 @@ class OverworldEvent {
     })
   }
 
-  addCash(resolve){
-    const status = new Status;
-    let amount = this.event.amount;
-    status.addCash(amount);
+  addCash100(resolve){
+    document.querySelector(".addCash100").click();
     resolve();
   }
 
-  payCash(resolve) {
-    const status = new Status;
-    let amount = this.event.amount;
-    status.payCash(amount);
-    resolve();
-  }
-
-  addEnergy(resolve) {
-    const status = new Status;
-    let amount = this.event.amount;
-    if (status.energy + amount < 100) {
-      status.addEnergy(amount);
-      resolve();
-    } else {
-      resolve();
-    }
-  }
 
   miniGame(resolve) {
     let onComplete = () => { resolve();}

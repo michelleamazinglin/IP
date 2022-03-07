@@ -74,11 +74,50 @@ class Status {
                 &nbsp;${this.energy}%
                 </div>
             </div>
+            <div class="addCash100"></div>
+            <div class="payCash5"></div>
+            <div class="payCash1"></div>
+            <div class="payFood5"></div>
+            <div class="payFood10"></div>
         `)
-        // this.element.querySelector(".hi").addEventListener("click", () => {
-        //     this.lostEnergy();
-        // });
-
+        // pay cash
+        this.element.querySelector(".payCash5").addEventListener("click", () => {
+            if (this.cash >= 5) {
+                this.payCash(5);
+            }  
+        });
+        this.element.querySelector(".payCash1").addEventListener("click", () => {
+            if (this.cash >= 1) {
+                this.payCash(1);
+            }  
+        });
+        // add cash
+        this.element.querySelector(".addCash100").addEventListener("click", () => {
+            this.addCash(100);
+        });
+        // pay food
+        this.element.querySelector(".payFood5").addEventListener("click", () => {
+            if (this.cash >= 5) {
+                this.payCash(5);
+                this.addEnergy(5);
+            } else {
+                const eventHandler = new OverworldEvent({
+                    event: { type: "textMessage", text: "emmm.. not enough cash, try to earn more cash by explore around." },
+                })
+                eventHandler.init();  
+            }
+        });
+        this.element.querySelector(".payFood10").addEventListener("click", () => {
+            if (this.cash >= 10) {
+                this.payCash(10);
+                this.addEnergy(10);
+            } else {
+                const eventHandler = new OverworldEvent({
+                    event: { type: "textMessage", text: "emmm.. not enough cash, try to earn more cash by explore around." },
+                })
+                eventHandler.init();
+            }
+        });
     }
 
     init(container) {

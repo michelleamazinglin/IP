@@ -117,10 +117,9 @@ window.OverworldMaps = {
                 talking: [
                     {
                         events: [
-                            { type: "addEnergy", amount: 5 },
                             { type: "textMessage", text: "I am glad you are ready to travel", faceMainCharacter: "mom" },
                             { type: "textMessage", text: "Here is some cash to get you started" },
-                            { type: "addCash", amount: 100 },
+                            { type: "addCash100"},
                             { type: "textMessage", text: "stay safe and have fun" },
                         ]
                     }
@@ -254,8 +253,7 @@ window.OverworldMaps = {
                                             description: "ticket is 5 dollars",
                                             label: "Get one ticket",
                                             handler: () => {
-                                            const status = new Status;
-                                            status.payCash(5);
+                                            document.querySelector(".payCash5").click();
                                             const keyboardMenu = new KeyboardMenu;
                                             keyboardMenu.end();
                                             }
@@ -377,10 +375,7 @@ window.OverworldMaps = {
                                             handler: () => {                                              
                                                 const keyboardMenu = new KeyboardMenu;
                                                 keyboardMenu.end();
-                                                // let button = document.querySelector(".Next_button");
-                                                // button.click();
-                                                const status = new Status;
-                                                status.payCash(1);
+                                                document.querySelector(".payCash1").click();
                                                 const eventHandler = new OverworldEvent({
                                                     event: { type: "miniGame", gameType: "writeMail" },
                                                     map: "Street",
@@ -680,9 +675,8 @@ window.OverworldMaps = {
                                             description: "Hamburger is 10 dollars",
                                             label: "Hamburger",
                                             handler: () => {
-                                                const status = new Status;
-                                                status.payCash(10);
-                                                status.addEnergy(10);
+                                                document.querySelector(".payFood10").click();
+                                                document.querySelector(".Next_button").click();
                                                 const keyboardMenu = new KeyboardMenu;
                                                 keyboardMenu.end();
                                             }
@@ -691,9 +685,8 @@ window.OverworldMaps = {
                                             description: "Apple Pie is 5 dollars",
                                             label: "Apple Pie",
                                             handler: () => {
-                                                const status = new Status;
-                                                status.payCash(5);
-                                                status.addEnergy(5);
+                                                document.querySelector(".payFood5").click();
+                                                document.querySelector(".Next_button").click();
                                                 const keyboardMenu = new KeyboardMenu;
                                                 keyboardMenu.end();
                                             }
@@ -702,9 +695,8 @@ window.OverworldMaps = {
                                             description: "Clam Chowder is 5 dollars",
                                             label: "Clam Chowder",
                                             handler: () => {
-                                                const status = new Status;
-                                                status.payCash(5);
-                                                status.addEnergy(5);
+                                                document.querySelector(".payFood5").click();
+                                                document.querySelector(".Next_button").click();
                                                 const keyboardMenu = new KeyboardMenu;
                                                 keyboardMenu.end();
                                             }
