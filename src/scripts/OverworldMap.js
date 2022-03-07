@@ -112,7 +112,7 @@ window.OverworldMaps = {
             mom: new Person({
                 x: utils.withGrid(7),
                 y: utils.withGrid(9),
-                src: "dist/images/Characters/people/npc1.png",
+                src: "dist/images/Characters/people/mom.png",
                 useShadow: true,
                 talking: [
                     {
@@ -130,7 +130,7 @@ window.OverworldMaps = {
                 x: utils.withGrid(8),
                 y: utils.withGrid(5),
                 useShadow: true,
-                src: "dist/images/Characters/people/npc3.png",
+                src: "dist/images/Characters/people/dad.png",
             }),
         },
         walls: {
