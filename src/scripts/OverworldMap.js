@@ -811,9 +811,102 @@ window.OverworldMaps = {
                 useShadow: true,
                 src: "dist/images/Characters/people/mainCharacter.png",
             }),
+            TheMetBook: new Person({
+                x: utils.withGrid(18),
+                y: utils.withGrid(21),
+                src: "",
+                talking: [
+                    {
+                        events: [
+                            { type: "miniGame", gameType: "TheMetQuiz" }
+                        ]
+                    }
+                ]
+            }),
         },
         walls: {
-            [utils.asGridCoord(0, 1)]: true,
+            // walls
+            [utils.asGridCoord(1, 17)]: true,
+            [utils.asGridCoord(2, 17)]: true,
+            [utils.asGridCoord(3, 17)]: true,
+            [utils.asGridCoord(4, 17)]: true,
+            [utils.asGridCoord(5, 17)]: true,
+            [utils.asGridCoord(6, 16)]: true,
+            [utils.asGridCoord(7, 16)]: true,
+            [utils.asGridCoord(8, 16)]: true,
+            [utils.asGridCoord(9, 17)]: true,
+            [utils.asGridCoord(10, 16)]: true,
+            [utils.asGridCoord(10, 15)]: true,
+            [utils.asGridCoord(10, 14)]: true,
+            [utils.asGridCoord(11, 13)]: true,
+            [utils.asGridCoord(12, 14)]: true,
+            [utils.asGridCoord(12, 15)]: true,
+            [utils.asGridCoord(12, 16)]: true,
+            [utils.asGridCoord(13, 17)]: true,
+            [utils.asGridCoord(14, 16)]: true,
+            [utils.asGridCoord(15, 16)]: true,
+            [utils.asGridCoord(16, 16)]: true,
+            [utils.asGridCoord(17, 17)]: true,
+            [utils.asGridCoord(18, 17)]: true,
+            [utils.asGridCoord(19, 17)]: true,
+            [utils.asGridCoord(20, 17)]: true,
+            [utils.asGridCoord(21, 17)]: true,
+            [utils.asGridCoord(22, 17)]: true,
+            [utils.asGridCoord(22, 18)]: true,
+            [utils.asGridCoord(22, 19)]: true,
+            [utils.asGridCoord(22, 20)]: true,
+            [utils.asGridCoord(22, 21)]: true,
+            [utils.asGridCoord(22, 22)]: true,
+            [utils.asGridCoord(22, 23)]: true,
+            [utils.asGridCoord(21, 23)]: true,
+            [utils.asGridCoord(2, 24)]: true,
+            [utils.asGridCoord(3, 24)]: true,
+            [utils.asGridCoord(4, 24)]: true,
+            [utils.asGridCoord(5, 24)]: true,
+            [utils.asGridCoord(6, 24)]: true,
+            [utils.asGridCoord(8, 24)]: true,
+            [utils.asGridCoord(9, 24)]: true,
+            [utils.asGridCoord(10, 24)]: true,
+            [utils.asGridCoord(11, 24)]: true,
+            [utils.asGridCoord(12, 24)]: true,
+            [utils.asGridCoord(13, 24)]: true,
+            [utils.asGridCoord(14, 24)]: true,
+            [utils.asGridCoord(15, 24)]: true,
+            [utils.asGridCoord(16, 24)]: true,
+            [utils.asGridCoord(17, 24)]: true,
+            [utils.asGridCoord(18, 24)]: true,
+            [utils.asGridCoord(19, 24)]: true,
+            [utils.asGridCoord(20, 24)]: true,
+            [utils.asGridCoord(1, 23)]: true,
+            [utils.asGridCoord(0, 18)]: true,
+            [utils.asGridCoord(0, 19)]: true,
+            [utils.asGridCoord(0, 20)]: true,
+            [utils.asGridCoord(0, 21)]: true,
+            [utils.asGridCoord(0, 22)]: true,
+            // info booth
+            [utils.asGridCoord(3, 21)]: true,
+            [utils.asGridCoord(4, 21)]: true,
+            [utils.asGridCoord(5, 21)]: true,
+            [utils.asGridCoord(6, 21)]: true,
+            [utils.asGridCoord(7, 21)]: true,
+            [utils.asGridCoord(3, 20)]: true,
+            [utils.asGridCoord(4, 20)]: true,
+            [utils.asGridCoord(5, 20)]: true,
+            [utils.asGridCoord(6, 20)]: true,
+            [utils.asGridCoord(7, 20)]: true,
+            // display shelf
+            [utils.asGridCoord(9, 21)]: true,
+            [utils.asGridCoord(10, 21)]: true,
+            [utils.asGridCoord(11, 21)]: true,
+            [utils.asGridCoord(12, 21)]: true,
+            [utils.asGridCoord(13, 21)]: true,
+            [utils.asGridCoord(9, 20)]: true,
+            [utils.asGridCoord(10, 20)]: true,
+            [utils.asGridCoord(11, 20)]: true,
+            [utils.asGridCoord(12, 20)]: true,
+            [utils.asGridCoord(13, 20)]: true,
+            // book
+            [utils.asGridCoord(18, 21)]: true,
         },
         cutsceneSpaces: {
             [utils.asGridCoord(7, 17)]: [
@@ -834,6 +927,38 @@ window.OverworldMaps = {
                 {
                     events: [
                         { type: "changeMap", map: "Street" }
+                    ]
+                }
+            ],
+            [utils.asGridCoord(11, 14)]: [
+                {
+                    events: [
+                        { type: "changeMap", map: "TheMetNorth" }
+                    ]
+                }
+            ]
+        }
+    },
+    TheMetNorth: {
+        lowerSrc: "./dist/images/maps/TheMetNorthLower.png",
+        upperSrc: "",
+        gameObjects: {
+            mainCharacter: new Person({
+                isPlayerControlled: true,
+                x: utils.withGrid(7),
+                y: utils.withGrid(15),
+                useShadow: true,
+                src: "dist/images/Characters/people/mainCharacter.png",
+            }),
+        },
+        walls: {
+            [utils.asGridCoord(0, 1)]: true,
+        },
+        cutsceneSpaces: {
+            [utils.asGridCoord(7, 16)]: [
+                {
+                    events: [
+                        { type: "changeMap", map: "TheMet" }
                     ]
                 }
             ]

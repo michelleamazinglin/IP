@@ -50,8 +50,10 @@ class MiniGame {
             </video>
         `)
         this.gameElement.appendChild(book);
-        
+    }
 
+    theMetQuiz(){
+        console.log("quiz")
     }
 
     check(){
@@ -64,6 +66,10 @@ class MiniGame {
         if (this.gameType == "drawMail") {
             return this.drawMail();
         }
+        if (this.gameType == "TheMetQuiz") {
+            return this.theMetQuiz();
+        }
+        
     }
 
     done(){

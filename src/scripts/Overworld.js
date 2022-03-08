@@ -81,30 +81,8 @@ class Overworld {
 
 
     this.map.startCutscene([
-      // { type: "textMessage", text: "hiiiiiinckjanckjankcnkjanck ajsckanckjanjcki", 
-      //   options: [
-      //     { 
-      //       description: "description1", 
-      //       label: "label",
-      //       handler: () => {
-      //         const status = new Status;
-      //         status.addEnergy(5);
-      //         const keyboardMenu = new KeyboardMenu;
-      //         keyboardMenu.end();
-      //       }
-      //     }, 
-      //     {
-      //       description: "description2", 
-      //       label: "label2", 
-      //       handler: () => {
-      //         const status = new Status;
-      //         status.addCash(5);
-      //         const keyboardMenu = new KeyboardMenu;
-      //         keyboardMenu.end();
-      //       }
-      //     }
-      //   ]
-      // },  
+      // { type: "textMessage", text: "I am ready to travel"},  
+      // { type: "textMessage", text: "Let's go tell mom first"},  
       // { type: "miniGame", gameType: "diary" }
     ])
   }
