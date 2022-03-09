@@ -53,8 +53,56 @@ class MiniGame {
     }
 
     theMetQuiz(){
-        console.log("quiz")
+        let quiz = document.createElement("div");
+        quiz.classList.add("quiz");
+        quiz.innerHTML = (`
+            <h2 class="quizQuestion">Which one below is an American Artist?</h2>
+            <div class="quizAnswers">
+            <button id="answer1" class="quizOptionFalse">Vincent van Gogh</button>
+            <button id="answer2" class="quizOptionTrue">Andy Warhol</button>
+            <button id="answer3" class="quizOptionFalse">Pablo Picasso</button>
+            </div>
+        `)
+        this.gameElement.appendChild(quiz);
+
+        let popup = document.createElement("div");
+        popup.classList.add("popup");
+        popup.innerHTML = (`
+            <h1 class="quizTrue">Congreats</h1>
+            <h1 class="quizFalse">oops</h1>
+            <button class="quizNext">Next Question</button>
+        `);
+        let quizTrue = popup.querySelector(".quizTrue");
+        let quizFalse = popup.querySelector(".quizFalse");
+        quizTrue.style.display = "none";
+        quizFalse.style.display = "none";
+        popup.querySelector(".quizNext").addEventListener("click", () => {
+            popup.style.display = "none";
+            quiz.innerHTML = (`
+            <h2 class="quizQuestion">That's all the questions for now</h2>
+            `)
+        });
+        this.gameElement.querySelectorAll(".quizOptionFalse").forEach((ele) => {
+            ele.addEventListener("click", () => {
+                ele.classList.add("red");
+                this.gameElement.appendChild(popup);
+                quizFalse.style.display = "block";
+                quizTrue.style.display = "none";
+            })
+        });
+        this.gameElement.querySelectorAll(".quizOptionTrue").forEach((ele) => {
+            ele.addEventListener("click", () => {
+                document.querySelector(".addCash5").click();
+                ele.classList.add("green");
+                this.gameElement.appendChild(popup);
+                quizTrue.style.display = "block";
+                quizFalse.style.display = "none";
+            })
+        })
+
     }
+
+
 
     nighthawks() {
         let nighthawks = document.createElement("div");

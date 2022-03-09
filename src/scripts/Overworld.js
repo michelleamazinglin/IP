@@ -83,7 +83,7 @@ class Overworld {
     this.map.startCutscene([
       // { type: "textMessage", text: "I am ready to travel"},  
       // { type: "textMessage", text: "Let's go tell mom first"},  
-      // { type: "miniGame", gameType: "americanGothic" }
+      // { type: "miniGame", gameType: "TheMetQuiz" }
     ])
   }
 }

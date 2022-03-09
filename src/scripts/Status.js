@@ -75,6 +75,7 @@ class Status {
                 </div>
             </div>
             <div class="addCash100"></div>
+            <div class="addCash5"></div>
             <div class="payCash5"></div>
             <div class="payCash1"></div>
             <div class="payFood5"></div>
@@ -94,6 +95,9 @@ class Status {
         // add cash
         this.element.querySelector(".addCash100").addEventListener("click", () => {
             this.addCash(100);
+        });
+        this.element.querySelector(".addCash5").addEventListener("click", () => {
+            this.addCash(5);
         });
         // pay food
         this.element.querySelector(".payFood5").addEventListener("click", () => {

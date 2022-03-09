@@ -226,16 +226,14 @@ window.OverworldMaps = {
                     }
                 ],
                 behaviorLoop: [
-                    { type: "stand", direction: "left", time: 1000 },
+                    { type: "stand", direction: "down", time: 5000 },
                     { type: "walk", direction: "left", time: 600  },
                     { type: "walk", direction: "left", time: 600  },
-                    { type: "stand", direction: "up", time: 1000 },
-                    { type: "walk", direction: "up", time: 600 },
-                    { type: "stand", direction: "right", time: 1000 },
+                    { type: "walk", direction: "left", time: 600 },
+                    { type: "stand", direction: "down", time: 5000 },
+                    { type: "walk", direction: "right", time: 600 },
                     { type: "walk", direction: "right", time: 600  },
-                    { type: "walk", direction: "right", time: 600  },
-                    { type: "stand", direction: "down", time: 1000 },
-                    { type: "walk", direction: "down", time: 600  },
+                    { type: "walk", direction: "right", time: 600 },
                 ],
             }),
             busTicket: new Shop({
@@ -1050,6 +1048,7 @@ window.OverworldMaps = {
                 useShadow: true,
                 src: "dist/images/Characters/people/mainCharacter.png",
             }),
+            
         },
         walls: {
             [utils.asGridCoord(0, 1)]: true,
