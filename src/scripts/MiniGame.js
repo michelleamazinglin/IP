@@ -56,6 +56,30 @@ class MiniGame {
         console.log("quiz")
     }
 
+    nighthawks() {
+        let nighthawks = document.createElement("div");
+        nighthawks.innerHTML = (`
+            <img class="nighthawks" src="dist/images/Objects/nighthawks.png">
+        `)
+        this.gameElement.appendChild(nighthawks);
+    }
+
+    americanGothic(){
+        let americanGothic = document.createElement("div");
+        americanGothic.innerHTML = (`
+            <img class=" americanGothic" src="dist/images/Objects/AmericanGothic.png">
+        `)
+        this.gameElement.appendChild(americanGothic);
+    }
+
+    andyCans(){
+        let andyCans = document.createElement("div");
+        andyCans.innerHTML = (`
+            <img class="nighthawks" src="dist/images/Objects/andyCans.png">
+        `)
+        this.gameElement.appendChild(andyCans);
+    }
+
     check(){
         if (this.gameType == "diary") {
             return this.diary();
@@ -69,7 +93,15 @@ class MiniGame {
         if (this.gameType == "TheMetQuiz") {
             return this.theMetQuiz();
         }
-        
+        if (this.gameType == "nighthawks") {
+            return this.nighthawks();
+        }
+        if (this.gameType == "americanGothic") {
+            return this.americanGothic();
+        }
+        if (this.gameType == "andyCans") {
+            return this.andyCans();
+        }
     }
 
     done(){

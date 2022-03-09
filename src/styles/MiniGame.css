@@ -48,3 +48,17 @@
   height: 100%;
   width: 100%;
 }
+
+.nighthawks{
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.americanGothic{
+  position: relative;
+  height: 100%;
+  width: 80%;
+  left: 10px;
+  top: 2px;
+}

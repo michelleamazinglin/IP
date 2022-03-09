@@ -823,6 +823,19 @@ window.OverworldMaps = {
                     }
                 ]
             }),
+            TheMetTicket: new Person({
+                x: utils.withGrid(4),
+                y: utils.withGrid(21),
+                src: "",
+                talking: [
+                    {
+                        events: [
+                            { type: "textMessage", text: "Welcome to the museum." },
+                            { type: "textMessage", text: "There is a mini quiz to the right, try to take it after you walk around the museum, there is a reward for winner." }
+                        ]
+                    }
+                ]
+            }),
         },
         walls: {
             // walls
@@ -912,14 +925,18 @@ window.OverworldMaps = {
             [utils.asGridCoord(7, 17)]: [
                 {
                     events: [
-                        { type: "textMessage", text: "edward hopper - nighthawks" },
+                        { type: "textMessage", text: "Edward Hopper - Nighthawks" },
+                        { type: "miniGame", gameType: "nighthawks" },
+                        { type: "textMessage", text: "Nighthawks is an oil painting. It was painted by American realist painter Edward Hopper in 1942. The picture shows two people sitting in a diner late at night. It is Hopper's most famous work. It is one of the most recognizable paintings in American art." },
                     ]
                 }
             ],
             [utils.asGridCoord(15, 17)]: [
                 {
                     events: [
-                        { type: "textMessage", text: "grant wood - american gothic" },
+                        { type: "textMessage", text: "Grant Wood - American Gothic" },
+                        { type: "miniGame", gameType: "americanGothic" },
+                        { type: "textMessage", text: "American Gothic is a 1930 painting by Grant Wood in the collection of the Art Institute of Chicago. It depicts a farmer standing beside his daughter." },
                     ]
                 }
             ],
@@ -950,9 +967,58 @@ window.OverworldMaps = {
                 useShadow: true,
                 src: "dist/images/Characters/people/mainCharacter.png",
             }),
+            andy: new Person({
+                x: utils.withGrid(9),
+                y: utils.withGrid(12),
+                useShadow: true,
+                src: "dist/images/Characters/people/andyWarhol.png",
+                behaviorLoop: [
+                    { type: "stand", direction: "down", time: 5000 },
+                    { type: "walk", direction: "down", time: 600 },
+                    { type: "walk", direction: "down", time: 600 },
+                    { type: "stand", direction: "up", time: 5000 },
+                    { type: "walk", direction: "up", time: 600 },
+                    { type: "walk", direction: "up", time: 600 },
+                ],
+                talking: [
+                    {
+                        events: [
+                            { type: "textMessage", text: "Hi, My name is Andy Warhol.", faceMainCharacter: "andy" },
+                            { type: "textMessage", text: "I have the same lunch every day...for twenty years...the same thing over and over again..." },
+                            { type: "textMessage", text: "Have you heard of Campbell’s soup cans? It comes with so many different flavours." },
+                            { type: "textMessage", text: "I made an art out of my lunch because I like them." },
+                        ]
+                    }
+                ],
+            }),
         },
         walls: {
-            [utils.asGridCoord(0, 1)]: true,
+            // wall
+            [utils.asGridCoord(3, 10)]: true,
+            [utils.asGridCoord(3, 11)]: true,
+            [utils.asGridCoord(3, 12)]: true,
+            [utils.asGridCoord(3, 13)]: true,
+            [utils.asGridCoord(3, 14)]: true,
+            [utils.asGridCoord(3, 15)]: true,
+            [utils.asGridCoord(4, 10)]: true,
+            [utils.asGridCoord(5, 10)]: true,
+            [utils.asGridCoord(6, 10)]: true,
+            [utils.asGridCoord(7, 10)]: true,
+            [utils.asGridCoord(8, 10)]: true,
+            [utils.asGridCoord(9, 10)]: true,
+            [utils.asGridCoord(10, 10)]: true,
+            [utils.asGridCoord(11, 11)]: true,
+            [utils.asGridCoord(11, 12)]: true,
+            [utils.asGridCoord(11, 13)]: true,
+            [utils.asGridCoord(11, 14)]: true,
+            [utils.asGridCoord(11, 15)]: true,
+            [utils.asGridCoord(4, 16)]: true,
+            [utils.asGridCoord(5, 16)]: true,
+            [utils.asGridCoord(6, 16)]: true,
+            [utils.asGridCoord(7, 17)]: true,
+            [utils.asGridCoord(8, 16)]: true,
+            [utils.asGridCoord(9, 16)]: true,
+            [utils.asGridCoord(10, 16)]: true,
         },
         cutsceneSpaces: {
             [utils.asGridCoord(7, 16)]: [
@@ -961,7 +1027,16 @@ window.OverworldMaps = {
                         { type: "changeMap", map: "TheMet" }
                     ]
                 }
-            ]
+            ],
+            [utils.asGridCoord(7, 11)]: [
+                {
+                    events: [
+                        {type: "textMessage", text: "Andy Warhol - Campbell's Soup Cans" },
+                        { type: "miniGame", gameType: "andyCans" },
+                        { type: "textMessage", text: "Campbell's Soup Cans, which is sometimes referred to as 32 Campbell's Soup Cans, is a work of art produced between November 1961 and March or April 1962 by Andy Warhol. It is made up of thirty-two canvases, and each are of a painting of a Campbell's Soup can" },
+                    ]
+                }
+            ],
         }
     },
     AirPort: {
