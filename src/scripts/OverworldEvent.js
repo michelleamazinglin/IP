@@ -98,7 +98,6 @@ class OverworldEvent {
     resolve();
   }
 
-
   miniGame(resolve) {
     let onComplete = () => { resolve();}
     let gameType = this.event.gameType
@@ -110,7 +109,10 @@ class OverworldEvent {
 
   }
 
-
+  addStoryFlag(resolve) {
+    window.playerState.storyFlags[this.event.flag] = true;
+    resolve();
+  }
 
   init() {
     return new Promise(resolve => {

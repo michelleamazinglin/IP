@@ -71,7 +71,13 @@ class OverworldMap {
             return `${object.x},${object.y}` === `${nextCoords.x},${nextCoords.y}`
         });
         if (!this.isCutscenePlaying && match && match.talking.length) {
-            this.startCutscene(match.talking[0].events)
+
+            const relevantScenario = match.talking.find(scenario => {
+                return (scenario.required || []).every(sf => {
+                    return playerState.storyFlags[sf]
+                })
+            })
+            relevantScenario && this.startCutscene(relevantScenario.events)
         }
     }
 
@@ -116,13 +122,19 @@ window.OverworldMaps = {
                 useShadow: true,
                 talking: [
                     {
+                        required: ["BACK_HOME"],
+                        events: [
+                            { type: "textMessage", text: "welcome back, how's the trip?", faceMainCharacter: "mom" },
+                        ]
+                    },
+                    {
                         events: [
                             { type: "textMessage", text: "I am glad you are ready to travel", faceMainCharacter: "mom" },
                             { type: "textMessage", text: "Here is some cash to get you started" },
                             { type: "addCash100"},
                             { type: "textMessage", text: "stay safe and have fun" },
                         ]
-                    }
+                    },
                 ]
             }),
             dad: new Person({
@@ -194,7 +206,8 @@ window.OverworldMaps = {
             [utils.asGridCoord(5, 10)]: [
                 {
                     events: [
-                        { type: "changeMap", map: "Street" }
+                        { type: "changeMap", map: "Street" },
+                        { type: "addStoryFlag", flag: "BACK_HOME"}
                     ]
                 }
             ]
@@ -225,16 +238,16 @@ window.OverworldMaps = {
                         ]
                     }
                 ],
-                behaviorLoop: [
-                    { type: "stand", direction: "down", time: 5000 },
-                    { type: "walk", direction: "left", time: 600  },
-                    { type: "walk", direction: "left", time: 600  },
-                    { type: "walk", direction: "left", time: 600 },
-                    { type: "stand", direction: "down", time: 5000 },
-                    { type: "walk", direction: "right", time: 600 },
-                    { type: "walk", direction: "right", time: 600  },
-                    { type: "walk", direction: "right", time: 600 },
-                ],
+                // behaviorLoop: [
+                //     { type: "stand", direction: "down", time: 5000 },
+                //     { type: "walk", direction: "left", time: 600  },
+                //     { type: "walk", direction: "left", time: 600  },
+                //     { type: "walk", direction: "left", time: 600 },
+                //     { type: "stand", direction: "down", time: 5000 },
+                //     { type: "walk", direction: "right", time: 600 },
+                //     { type: "walk", direction: "right", time: 600  },
+                //     { type: "walk", direction: "right", time: 600 },
+                // ],
             }),
             busTicket: new Shop({
                 x: utils.withGrid(32),
