@@ -1112,6 +1112,7 @@ window.OverworldMaps = {
             }),
         },
         walls: {
+            // walls
             [utils.asGridCoord(7, 9)]: true,
             [utils.asGridCoord(8, 9)]: true,
             [utils.asGridCoord(9, 9)]: true,
@@ -1121,13 +1122,104 @@ window.OverworldMaps = {
             [utils.asGridCoord(13, 9)]: true,
             [utils.asGridCoord(14, 9)]: true,
             [utils.asGridCoord(15, 9)]: true,
-
+            [utils.asGridCoord(0, 10)]: true,
+            [utils.asGridCoord(0, 11)]: true,
+            [utils.asGridCoord(0, 12)]: true,
+            [utils.asGridCoord(0, 13)]: true,
+            [utils.asGridCoord(0, 14)]: true,
+            [utils.asGridCoord(0, 15)]: true,
+            [utils.asGridCoord(0, 16)]: true,
+            [utils.asGridCoord(1, 16)]: true,
+            [utils.asGridCoord(2, 16)]: true,
+            [utils.asGridCoord(3, 16)]: true,
+            [utils.asGridCoord(4, 16)]: true,
+            [utils.asGridCoord(5, 16)]: true,
+            [utils.asGridCoord(6, 16)]: true,
+            [utils.asGridCoord(7, 16)]: true,
+            [utils.asGridCoord(8, 16)]: true,
+            [utils.asGridCoord(9, 16)]: true,
+            [utils.asGridCoord(10, 16)]: true,
+            [utils.asGridCoord(11, 16)]: true,
+            [utils.asGridCoord(12, 16)]: true,
+            [utils.asGridCoord(13, 16)]: true,
+            [utils.asGridCoord(14, 16)]: true,
+            [utils.asGridCoord(15, 16)]: true,
+            [utils.asGridCoord(16, 10)]: true,
+            [utils.asGridCoord(16, 11)]: true,
+            [utils.asGridCoord(16, 12)]: true,
+            [utils.asGridCoord(17, 13)]: true,
+            [utils.asGridCoord(16, 14)]: true,
+            [utils.asGridCoord(16, 15)]: true,
+            // 
         },
         cutsceneSpaces: {
             [utils.asGridCoord(16, 13)]: [
                 {
                     events: [
                         { type: "changeMap", map: "Street" }
+                    ]
+                }
+            ],
+            [utils.asGridCoord(0, 9)]: [
+                {
+                    events: [
+                        { type: "textMessage", text: "Does not seem very safe over here." },
+                        { who: "mainCharacter", type: "walk", direction: "down" },
+                        { who: "mainCharacter", type: "walk", direction: "down" },
+                    ]
+                }
+            ],
+            [utils.asGridCoord(1, 9)]: [
+                {
+                    events: [
+                        { type: "textMessage", text: "Does not seem very safe over here." },
+                        { who: "mainCharacter", type: "walk", direction: "down" },
+                        { who: "mainCharacter", type: "walk", direction: "down" },
+                    ]
+                }
+            ],
+            [utils.asGridCoord(2, 9)]: [
+                {
+                    events: [
+                        { type: "textMessage", text: "Does not seem very safe over here." },
+                        { who: "mainCharacter", type: "walk", direction: "down" },
+                        { who: "mainCharacter", type: "walk", direction: "down" },
+                    ]
+                }
+            ],
+            [utils.asGridCoord(3, 9)]: [
+                {
+                    events: [
+                        { type: "textMessage", text: "Does not seem very safe over here." },
+                        { who: "mainCharacter", type: "walk", direction: "down" },
+                        { who: "mainCharacter", type: "walk", direction: "down" },
+                    ]
+                }
+            ],
+            [utils.asGridCoord(4, 9)]: [
+                {
+                    events: [
+                        { type: "textMessage", text: "Does not seem very safe over here." },
+                        { who: "mainCharacter", type: "walk", direction: "down" },
+                        { who: "mainCharacter", type: "walk", direction: "down" },
+                    ]
+                }
+            ],
+            [utils.asGridCoord(5, 9)]: [
+                {
+                    events: [
+                        { type: "textMessage", text: "Does not seem very safe over here." },
+                        { who: "mainCharacter", type: "walk", direction: "down" },
+                        { who: "mainCharacter", type: "walk", direction: "down" },
+                    ]
+                }
+            ],
+            [utils.asGridCoord(6, 9)]: [
+                {
+                    events: [
+                        { type: "textMessage", text: "Does not seem very safe over here." },
+                        { who: "mainCharacter", type: "walk", direction: "down" },
+                        { who: "mainCharacter", type: "walk", direction: "down" },
                     ]
                 }
             ],
