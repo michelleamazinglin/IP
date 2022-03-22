@@ -66,7 +66,7 @@ class Overworld {
   }
 
   init() {
-    this.startMap(window.OverworldMaps.AirPort);
+    this.startMap(window.OverworldMaps.Home);
 
     this.bindActionInput();
     this.bindMainCharacterPositionCheck();
@@ -81,8 +81,8 @@ class Overworld {
 
 
     this.map.startCutscene([
-      // { type: "textMessage", text: "I am ready to travel"},  
-      // { type: "textMessage", text: "Let's go tell mom first"},  
+      { type: "textMessage", text: "I am ready to travel"},  
+      { type: "textMessage", text: "Let's go tell mom first"},  
       // { type: "miniGame", gameType: "TheMetQuiz" }
     ])
   }

@@ -1098,6 +1098,14 @@ window.OverworldMaps = {
                                     [
                                         {
                                             description: "",
+                                            label: "China",
+                                            handler: () => {
+                                                console.log("click")
+                                                window.alert("New Map Coming Soon")
+                                            }
+                                        },
+                                        {
+                                            description: "",
                                             label: "Maybe Later",
                                             handler: () => {
                                                 const keyboardMenu = new KeyboardMenu;
@@ -1309,5 +1317,18 @@ window.OverworldMaps = {
             ]
         }
     },
+    China: {
+        lowerSrc: "./dist/images/maps/ChinatLower.png",
+        upperSrc: "",
+        gameObjects: {
+            mainCharacter: new Person({
+                isPlayerControlled: true,
+                x: utils.withGrid(1),
+                y: utils.withGrid(11),
+                useShadow: true,
+                src: "dist/images/Characters/people/mainCharacter.png",
+            }),
+        },
+    }
 }
 
