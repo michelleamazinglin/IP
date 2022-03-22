@@ -133,6 +133,7 @@ window.OverworldMaps = {
                             { type: "textMessage", text: "Here is some cash to get you started" },
                             { type: "addCash100"},
                             { type: "textMessage", text: "stay safe and have fun" },
+                            { type: "addStoryFlag", flag: "BACK_HOME" }
                         ]
                     },
                 ]
@@ -207,7 +208,6 @@ window.OverworldMaps = {
                 {
                     events: [
                         { type: "changeMap", map: "Street" },
-                        { type: "addStoryFlag", flag: "BACK_HOME"}
                     ]
                 }
             ]
@@ -231,10 +231,33 @@ window.OverworldMaps = {
                 src: "dist/images/Characters/people/UncleSam.png",
                 talking: [
                     {
+                        required: ["LOOKED_AT_DIARY"],
+                        events: [
+                            { type: "textMessage", text: "Nice to see you again.", faceMainCharacter: "USnpc" },
+                            { 
+                            type: "textMessage", 
+                            text: "You want to take a quiz? There is a reward...", 
+                            faceMainCharacter: "USnpc",
+                            options:
+                                [
+                                    {
+                                        description: "",
+                                        label: "Maybe Later",
+                                        handler: () => {
+                                            const keyboardMenu = new KeyboardMenu;
+                                            keyboardMenu.end();
+                                        }
+                                    },
+                                ]                           
+                            },
+                        ]
+                    },
+                    {
                         events: [
                             { type: "textMessage", text: "Hi, My name is Uncle Sam", faceMainCharacter: "USnpc" },
                             { type: "textMessage", text: "The white building to the north is my office, you can make a visit sometime" },
                             { type: "textMessage", text: "But...Please don't read the diary on my table" },
+                            { type: "addStoryFlag", flag: "LOOKED_AT_DIARY" }
                         ]
                     }
                 ],
@@ -1061,10 +1084,44 @@ window.OverworldMaps = {
                 useShadow: true,
                 src: "dist/images/Characters/people/mainCharacter.png",
             }),
-            
+            airportPerson: new Person({
+                x: utils.withGrid(6),
+                y: utils.withGrid(13),
+                src: "",
+                talking: [
+                    {
+                        events: [
+                            {
+                                type: "textMessage",
+                                text: "Hi, where do you want to go?",
+                                options:
+                                    [
+                                        {
+                                            description: "",
+                                            label: "Maybe Later",
+                                            handler: () => {
+                                                const keyboardMenu = new KeyboardMenu;
+                                                keyboardMenu.end();
+                                            }
+                                        },
+                                    ]
+                            },
+                        ]
+                    }
+                ],
+            }),
         },
         walls: {
-            [utils.asGridCoord(0, 1)]: true,
+            [utils.asGridCoord(7, 9)]: true,
+            [utils.asGridCoord(8, 9)]: true,
+            [utils.asGridCoord(9, 9)]: true,
+            [utils.asGridCoord(10, 9)]: true,
+            [utils.asGridCoord(11, 9)]: true,
+            [utils.asGridCoord(12, 9)]: true,
+            [utils.asGridCoord(13, 9)]: true,
+            [utils.asGridCoord(14, 9)]: true,
+            [utils.asGridCoord(15, 9)]: true,
+
         },
         cutsceneSpaces: {
             [utils.asGridCoord(16, 13)]: [
@@ -1073,7 +1130,7 @@ window.OverworldMaps = {
                         { type: "changeMap", map: "Street" }
                     ]
                 }
-            ]
+            ],
         }
     },
     Office: {
@@ -1094,7 +1151,8 @@ window.OverworldMaps = {
                 talking: [
                     {
                         events: [
-                            { type: "miniGame", gameType: "diary" }
+                            { type: "miniGame", gameType: "diary" },
+                            // { type: "addStoryFlag", flag: "LOOKED_AT_DIARY" }
                         ]
                     }
                 ]
